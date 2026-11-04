@@ -1,0 +1,24 @@
+{
+ "texture": "wood",
+ "area_pct": 2,
+ "method": "routeB",
+ "seed": 23,
+ "metrics": {
+  "pixel_ap": 48.62885868246147,
+  "au_pro": 93.86872884827443,
+  "pixel_auroc": 98.15514574565891,
+  "chance_ap": 1.9860318122866385
+ },
+ "n_images": 19,
+ "n_train": 30,
+ "reference_indices": [
+  12,
+  29,
+  0,
+  19
+ ],
+ "seconds": 2.43,
+ "host": "abdelilah",
+ "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+ "finished": "2026-11-04T18:42:20"
+}

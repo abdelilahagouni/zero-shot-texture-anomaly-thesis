@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": "2026-11-04T18:14:37",
+    "host": "abdelilah",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.2",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "cuda": "12.4",
+    "cudnn": 90100,
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_memory_gb": 4.0,
+    "numpy": "2.2.6",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.1",
+    "opencv": "4.13.0",
+    "tf32_disabled": true,
+    "git_commit": null,
+    "argv": [
+      "src/run_defect_size_sweep.py"
+    ],
+    "data_root": "C:\\Users\\abdel\\OneDrive\\Desktop\\zero shot\\zero_shot_texture_anomaly\\data\\mvtec"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "k_shot": 4,
+  "synth_seed": 0,
+  "color_shift": 0.15,
+  "rotate": true,
+  "max_images": null,
+  "image_size": 518,
+  "backbone": "dinov2_vitb14",
+  "au_pro": "evaluation.compute_au_pro(max_fpr=0.3, num_thresholds=1000)"
+}

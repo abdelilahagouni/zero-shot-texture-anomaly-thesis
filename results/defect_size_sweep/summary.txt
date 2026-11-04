@@ -1,0 +1,70 @@
+DEFECT-SIZE SWEEP SUMMARY
+Results: C:\Users\abdel\OneDrive\Desktop\zero shot\zero_shot_texture_anomaly\results\defect_size_sweep
+Machines: abdelilah (NVIDIA GeForce RTX 3050 Laptop GPU)
+Pixel AP rises with defect area partly because its chance level (= defect fraction) rises,
+so the trend test below uses AU-PRO, which does not depend on the defect fraction.
+
+CARPET (8 sizes, Route B over 10 seed(s)):
+   0.25%  AP  A=  4.41  B= 41.71 ± 2.53   AU-PRO  A= 71.09  B= 90.60   chance AP 0.25
+    0.5%  AP  A= 14.55  B= 50.36 ± 0.44   AU-PRO  A= 71.42  B= 92.72   chance AP 0.51
+      1%  AP  A= 11.97  B= 55.29 ± 0.64   AU-PRO  A= 70.33  B= 92.08   chance AP 1.01
+      2%  AP  A= 17.17  B= 62.93 ± 0.63   AU-PRO  A= 63.52  B= 91.72   chance AP 1.99
+      4%  AP  A= 13.23  B= 52.19 ± 0.40   AU-PRO  A= 45.42  B= 82.17   chance AP 4.03
+      8%  AP  A= 18.53  B= 53.37 ± 0.31   AU-PRO  A= 37.75  B= 75.18   chance AP 8.05
+     16%  AP  A= 25.22  B= 50.61 ± 0.27   AU-PRO  A= 28.60  B= 58.15   chance AP 15.97
+     32%  AP  A= 36.03  B= 53.50 ± 0.21   AU-PRO  A= 19.08  B= 37.41   chance AP 31.99
+  Crossover: none. Route B has the higher Pixel AP at every size.
+  AU-PRO trend vs size (Spearman rho): Route A -0.98, Route B -0.86
+  -> Route A AU-PRO falls as defects grow.
+
+GRID (8 sizes, Route B over 10 seed(s)):
+   0.25%  AP  A= 47.06  B= 48.09 ± 1.39   AU-PRO  A= 99.08  B= 99.47   chance AP 0.25
+    0.5%  AP  A= 52.57  B= 53.75 ± 0.91   AU-PRO  A= 99.00  B= 99.24   chance AP 0.51
+      1%  AP  A= 40.69  B= 46.79 ± 0.78   AU-PRO  A= 94.91  B= 98.06   chance AP 1.01
+      2%  AP  A= 23.06  B= 39.33 ± 0.53   AU-PRO  A= 74.93  B= 94.80   chance AP 1.99
+      4%  AP  A= 17.77  B= 38.97 ± 1.47   AU-PRO  A= 47.11  B= 85.72   chance AP 4.03
+      8%  AP  A= 20.51  B= 39.11 ± 0.87   AU-PRO  A= 36.33  B= 67.70   chance AP 8.05
+     16%  AP  A= 27.21  B= 44.18 ± 1.24   AU-PRO  A= 29.46  B= 53.06   chance AP 15.97
+     32%  AP  A= 36.57  B= 51.90 ± 0.94   AU-PRO  A= 20.29  B= 37.64   chance AP 31.99
+  Crossover: none. Route B has the higher Pixel AP at every size.
+  AU-PRO trend vs size (Spearman rho): Route A -1.00, Route B -1.00
+  -> Route A AU-PRO falls as defects grow.
+
+LEATHER (8 sizes, Route B over 10 seed(s)):
+   0.25%  AP  A= 13.58  B= 47.51 ± 4.28   AU-PRO  A= 93.84  B= 99.04   chance AP 0.25
+    0.5%  AP  A= 12.03  B= 41.49 ± 1.82   AU-PRO  A= 89.68  B= 98.49   chance AP 0.51
+      1%  AP  A= 14.54  B= 36.56 ± 0.58   AU-PRO  A= 78.75  B= 96.59   chance AP 1.01
+      2%  AP  A= 15.22  B= 37.87 ± 0.40   AU-PRO  A= 59.82  B= 90.71   chance AP 1.99
+      4%  AP  A= 21.10  B= 45.68 ± 0.31   AU-PRO  A= 50.47  B= 84.00   chance AP 4.03
+      8%  AP  A= 24.78  B= 47.00 ± 0.49   AU-PRO  A= 40.93  B= 70.05   chance AP 8.05
+     16%  AP  A= 30.14  B= 49.15 ± 0.46   AU-PRO  A= 31.65  B= 54.71   chance AP 15.97
+     32%  AP  A= 38.70  B= 54.66 ± 0.74   AU-PRO  A= 21.84  B= 38.72   chance AP 31.99
+  Crossover: none. Route B has the higher Pixel AP at every size.
+  AU-PRO trend vs size (Spearman rho): Route A -1.00, Route B -1.00
+  -> Route A AU-PRO falls as defects grow.
+
+TILE (8 sizes, Route B over 10 seed(s)):
+   0.25%  AP  A= 41.21  B= 54.84 ± 1.78   AU-PRO  A= 93.87  B= 99.21   chance AP 0.25
+    0.5%  AP  A= 40.71  B= 58.28 ± 1.09   AU-PRO  A= 95.31  B= 99.20   chance AP 0.51
+      1%  AP  A= 33.02  B= 53.33 ± 0.91   AU-PRO  A= 84.97  B= 98.25   chance AP 1.01
+      2%  AP  A= 25.58  B= 46.65 ± 0.55   AU-PRO  A= 65.80  B= 94.58   chance AP 1.99
+      4%  AP  A= 22.97  B= 45.77 ± 0.72   AU-PRO  A= 49.57  B= 84.05   chance AP 4.03
+      8%  AP  A= 23.82  B= 44.01 ± 0.90   AU-PRO  A= 37.61  B= 69.12   chance AP 8.05
+     16%  AP  A= 25.90  B= 37.20 ± 0.87   AU-PRO  A= 25.51  B= 42.94   chance AP 15.97
+     32%  AP  A= 34.24  B= 40.66 ± 0.56   AU-PRO  A= 16.21  B= 24.85   chance AP 31.99
+  Crossover: none. Route B has the higher Pixel AP at every size.
+  AU-PRO trend vs size (Spearman rho): Route A -0.98, Route B -1.00
+  -> Route A AU-PRO falls as defects grow.
+
+WOOD (8 sizes, Route B over 10 seed(s)):
+   0.25%  AP  A=  8.08  B= 47.47 ± 2.49   AU-PRO  A= 89.15  B= 99.20   chance AP 0.25
+    0.5%  AP  A=  7.01  B= 47.64 ± 1.47   AU-PRO  A= 84.12  B= 98.66   chance AP 0.51
+      1%  AP  A=  7.38  B= 42.52 ± 1.63   AU-PRO  A= 76.94  B= 97.25   chance AP 1.01
+      2%  AP  A= 15.85  B= 49.96 ± 1.12   AU-PRO  A= 73.76  B= 94.21   chance AP 1.99
+      4%  AP  A= 17.74  B= 55.67 ± 0.97   AU-PRO  A= 61.61  B= 89.71   chance AP 4.03
+      8%  AP  A= 22.17  B= 53.83 ± 0.67   AU-PRO  A= 45.32  B= 75.29   chance AP 8.05
+     16%  AP  A= 24.96  B= 54.79 ± 0.38   AU-PRO  A= 28.33  B= 62.10   chance AP 15.97
+     32%  AP  A= 34.15  B= 57.70 ± 0.90   AU-PRO  A= 15.58  B= 43.16   chance AP 31.99
+  Crossover: none. Route B has the higher Pixel AP at every size.
+  AU-PRO trend vs size (Spearman rho): Route A -1.00, Route B -1.00
+  -> Route A AU-PRO falls as defects grow.
