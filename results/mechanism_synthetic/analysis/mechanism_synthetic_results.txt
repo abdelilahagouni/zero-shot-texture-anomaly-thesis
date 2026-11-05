@@ -1,0 +1,164 @@
+PART B ANALYSIS: 4788 synthetic images from 133 base images; bootstrap 10000 over base images
+
+a/f. Slope of per-image pixel AUROC on log(area) [95% CI]
+  pooled
+    A                 -8.561 [-8.757, -8.362]
+    A_clean           -2.879 [-3.011, -2.750]
+    A_median          -7.620 [-7.813, -7.432]
+    A_trim            -8.318 [-8.534, -8.103]
+    B                 -4.226 [-4.349, -4.103]
+    A_clean-A         +5.682 [+5.569, +5.794]
+    A_median-A        +0.941 [+0.849, +1.034]
+    A_trim-A          +0.243 [+0.205, +0.279]
+    A_clean-B         +1.347 [+1.251, +1.444]
+  othertexture
+    A                 -6.805 [-7.175, -6.448]
+    A_clean           -0.244 [-0.266, -0.224]
+    A_median          -4.909 [-5.038, -4.787]
+    A_trim            -6.714 [-7.101, -6.341]
+    B                 -1.134 [-1.208, -1.065]
+    A_clean-A         +6.561 [+6.205, +6.932]
+    A_median-A        +1.896 [+1.576, +2.229]
+    A_trim-A          +0.091 [+0.067, +0.115]
+    A_clean-B         +0.890 [+0.833, +0.949]
+  noise
+    A                 -11.500 [-11.819, -11.171]
+    A_clean           -5.415 [-5.775, -5.045]
+    A_median          -11.030 [-11.341, -10.710]
+    A_trim            -11.535 [-11.831, -11.227]
+    B                 -7.881 [-8.335, -7.417]
+    A_clean-A         +6.085 [+5.899, +6.280]
+    A_median-A        +0.470 [+0.397, +0.543]
+    A_trim-A          -0.035 [-0.108, +0.036]
+    A_clean-B         +2.467 [+2.096, +2.834]
+  blur
+    A                 -6.137 [-6.504, -5.773]
+    A_clean           -1.137 [-1.261, -1.012]
+    A_median          -5.760 [-6.129, -5.400]
+    A_trim            -5.595 [-5.965, -5.223]
+    B                 -1.695 [-1.778, -1.615]
+    A_clean-A         +4.999 [+4.725, +5.280]
+    A_median-A        +0.377 [+0.255, +0.497]
+    A_trim-A          +0.542 [+0.486, +0.597]
+    A_clean-B         +0.558 [+0.420, +0.697]
+  hueshift
+    A                 -9.803 [-9.958, -9.649]
+    A_clean           -4.720 [-4.866, -4.579]
+    A_median          -8.781 [-8.965, -8.602]
+    A_trim            -9.430 [-9.588, -9.272]
+    B                 -6.192 [-6.320, -6.064]
+    A_clean-A         +5.083 [+4.995, +5.166]
+    A_median-A        +1.022 [+0.959, +1.084]
+    A_trim-A          +0.373 [+0.335, +0.410]
+    A_clean-B         +1.472 [+1.313, +1.630]
+  (time 10s)
+
+b. 50% prediction (diff = mean AUROC at 50% minus at reference size)
+  pooled       ref  32.0%  A  65.27-> 44.26 diff -21.012 [-21.578, -20.439]   A_clean  84.31-> 84.42 diff +0.112 [-0.162, +0.376]   holds: True
+  pooled       ref  0.25%  A  97.02-> 44.26 diff -52.760 [-53.910, -51.596]   A_clean  97.15-> 84.42 diff -12.728 [-13.319, -12.112]   holds: False
+  othertexture ref  32.0%  A  88.03-> 37.73 diff -50.301 [-52.516, -48.096]   A_clean  98.74-> 98.80 diff +0.054 [-0.047, +0.156]   holds: True
+  othertexture ref  0.25%  A  99.93-> 37.73 diff -62.200 [-65.317, -59.142]   A_clean  99.93-> 98.80 diff -1.135 [-1.239, -1.037]   holds: True
+  noise        ref  32.0%  A  42.18-> 36.77 diff -5.414 [-6.203, -4.663]   A_clean  69.06-> 70.59 diff +1.529 [+0.669, +2.333]   holds: True
+  noise        ref  0.25%  A  92.61-> 36.77 diff -55.846 [-57.685, -53.854]   A_clean  92.85-> 70.59 diff -22.255 [-24.046, -20.294]   holds: False
+  blur         ref  32.0%  A  75.27-> 57.22 diff -18.047 [-18.980, -17.101]   A_clean  92.73-> 92.52 diff -0.209 [-0.564, +0.133]   holds: True
+  blur         ref  0.25%  A  97.01-> 57.22 diff -39.794 [-41.793, -37.810]   A_clean  97.19-> 92.52 diff -4.668 [-5.310, -3.977]   holds: False
+  hueshift     ref  32.0%  A  55.60-> 45.31 diff -10.287 [-10.814, -9.769]   A_clean  76.69-> 75.77 diff -0.926 [-1.324, -0.532]   holds: True
+  hueshift     ref  0.25%  A  98.51-> 45.31 diff -53.200 [-53.936, -52.455]   A_clean  98.62-> 75.77 diff -22.853 [-23.534, -22.175]   holds: False
+
+c. Self-contamination criterion: (i) slope A<0; (ii) A_clean-A>0; (iii) 50% prediction
+  reference size for (iii) = 32.0%
+    pooled       (i) pass  (ii) pass  (iii) pass
+    othertexture (i) pass  (ii) pass  (iii) pass
+    noise        (i) pass  (ii) pass  (iii) pass
+    blur         (i) pass  (ii) pass  (iii) pass
+    hueshift     (i) pass  (ii) pass  (iii) pass
+    types passing all three: 4/4 -> VERDICT: supported
+  reference size for (iii) = 0.25%
+    pooled       (i) pass  (ii) pass  (iii) FAIL
+    othertexture (i) pass  (ii) pass  (iii) pass
+    noise        (i) pass  (ii) pass  (iii) FAIL
+    blur         (i) pass  (ii) pass  (iii) FAIL
+    hueshift     (i) pass  (ii) pass  (iii) FAIL
+    types passing all three: 1/4 -> VERDICT: not supported
+
+d. Drift criterion (drift of normal patches > 5 patches from the blob)
+  images used 4788, dropped for NaN drift 0 (by size: {})
+  control: max drift clean-vs-clean 2.384e-07, tokens identical 133/133
+  drift on log(area), pooled       +0.015 [+0.014, +0.015]
+  drift on log(area), othertexture +0.026 [+0.025, +0.027]
+  drift on log(area), noise        +0.004 [+0.004, +0.004]
+  drift on log(area), blur         +0.016 [+0.015, +0.017]
+  drift on log(area), hueshift     +0.013 [+0.012, +0.014]
+  AUROC A ~ log(area) + drift: drift +46.965 [+28.991, +66.144], log(area) -9.249 [-9.480, -9.020]
+  AUROC B ~ log(area) + drift: drift +119.040 [+103.867, +135.257], log(area) -5.969 [-6.253, -5.700]
+  part 1 pooled pass; types passing 4/4 ['othertexture', 'noise', 'blur', 'hueshift']; part 2 (A and B) pass -> VERDICT: supported
+  (time 14s)
+
+e. Boundary (<=14 px) vs interior: mean fraction of mask pixels above the 99th percentile of the same map's normal pixels (B: all 5 seeds pooled); interior is NaN when the blob has no interior
+  blur          0.25%  A: ring 0.619 int nan  A_clean: ring 0.638 int nan  A_median: ring 0.536 int nan  A_trim: ring 0.679 int nan  B: ring 0.991 int nan
+  blur           0.5%  A: ring 0.629 int 0.694  A_clean: ring 0.663 int 0.713  A_median: ring 0.542 int 0.608  A_trim: ring 0.690 int 0.739  B: ring 0.989 int 0.997
+  blur           1.0%  A: ring 0.589 int 0.534  A_clean: ring 0.666 int 0.606  A_median: ring 0.528 int 0.463  A_trim: ring 0.665 int 0.604  B: ring 0.985 int 0.966
+  blur           2.0%  A: ring 0.675 int 0.433  A_clean: ring 0.784 int 0.549  A_median: ring 0.608 int 0.368  A_trim: ring 0.735 int 0.483  B: ring 0.975 int 0.811
+  blur           4.0%  A: ring 0.679 int 0.327  A_clean: ring 0.808 int 0.446  A_median: ring 0.659 int 0.305  A_trim: ring 0.714 int 0.347  B: ring 0.930 int 0.534
+  blur           8.0%  A: ring 0.640 int 0.206  A_clean: ring 0.815 int 0.345  A_median: ring 0.678 int 0.229  A_trim: ring 0.653 int 0.222  B: ring 0.879 int 0.356
+  blur          16.0%  A: ring 0.544 int 0.104  A_clean: ring 0.783 int 0.213  A_median: ring 0.644 int 0.140  A_trim: ring 0.533 int 0.105  B: ring 0.811 int 0.186
+  blur          32.0%  A: ring 0.353 int 0.053  A_clean: ring 0.735 int 0.198  A_median: ring 0.543 int 0.101  A_trim: ring 0.307 int 0.049  B: ring 0.716 int 0.124
+  blur          50.0%  A: ring 0.107 int 0.018  A_clean: ring 0.672 int 0.258  A_median: ring 0.245 int 0.030  A_trim: ring 0.079 int 0.017  B: ring 0.609 int 0.091
+  hueshift      0.25%  A: ring 0.611 int nan  A_clean: ring 0.634 int nan  A_median: ring 0.476 int nan  A_trim: ring 0.667 int nan  B: ring 0.981 int nan
+  hueshift       0.5%  A: ring 0.406 int 0.194  A_clean: ring 0.434 int 0.217  A_median: ring 0.319 int 0.169  A_trim: ring 0.446 int 0.225  B: ring 0.801 int 0.449
+  hueshift       1.0%  A: ring 0.311 int 0.102  A_clean: ring 0.344 int 0.115  A_median: ring 0.253 int 0.079  A_trim: ring 0.342 int 0.122  B: ring 0.582 int 0.181
+  hueshift       2.0%  A: ring 0.281 int 0.030  A_clean: ring 0.331 int 0.039  A_median: ring 0.233 int 0.028  A_trim: ring 0.307 int 0.037  B: ring 0.456 int 0.075
+  hueshift       4.0%  A: ring 0.251 int 0.007  A_clean: ring 0.320 int 0.012  A_median: ring 0.232 int 0.008  A_trim: ring 0.271 int 0.009  B: ring 0.393 int 0.021
+  hueshift       8.0%  A: ring 0.237 int 0.003  A_clean: ring 0.323 int 0.005  A_median: ring 0.239 int 0.003  A_trim: ring 0.248 int 0.003  B: ring 0.361 int 0.007
+  hueshift      16.0%  A: ring 0.198 int 0.002  A_clean: ring 0.299 int 0.003  A_median: ring 0.224 int 0.002  A_trim: ring 0.198 int 0.002  B: ring 0.323 int 0.004
+  hueshift      32.0%  A: ring 0.140 int 0.002  A_clean: ring 0.262 int 0.005  A_median: ring 0.187 int 0.002  A_trim: ring 0.130 int 0.002  B: ring 0.276 int 0.004
+  hueshift      50.0%  A: ring 0.080 int 0.001  A_clean: ring 0.227 int 0.005  A_median: ring 0.128 int 0.002  A_trim: ring 0.068 int 0.001  B: ring 0.229 int 0.003
+  noise         0.25%  A: ring 0.424 int nan  A_clean: ring 0.441 int nan  A_median: ring 0.338 int nan  A_trim: ring 0.470 int nan  B: ring 0.864 int nan
+  noise          0.5%  A: ring 0.503 int 0.658  A_clean: ring 0.530 int 0.676  A_median: ring 0.424 int 0.551  A_trim: ring 0.555 int 0.703  B: ring 0.946 int 0.966
+  noise          1.0%  A: ring 0.443 int 0.487  A_clean: ring 0.488 int 0.527  A_median: ring 0.376 int 0.387  A_trim: ring 0.485 int 0.530  B: ring 0.930 int 0.953
+  noise          2.0%  A: ring 0.301 int 0.286  A_clean: ring 0.382 int 0.345  A_median: ring 0.259 int 0.241  A_trim: ring 0.335 int 0.305  B: ring 0.828 int 0.783
+  noise          4.0%  A: ring 0.171 int 0.126  A_clean: ring 0.283 int 0.191  A_median: ring 0.174 int 0.127  A_trim: ring 0.187 int 0.132  B: ring 0.684 int 0.512
+  noise          8.0%  A: ring 0.066 int 0.025  A_clean: ring 0.220 int 0.097  A_median: ring 0.105 int 0.039  A_trim: ring 0.067 int 0.025  B: ring 0.535 int 0.307
+  noise         16.0%  A: ring 0.014 int 0.002  A_clean: ring 0.141 int 0.026  A_median: ring 0.051 int 0.006  A_trim: ring 0.009 int 0.002  B: ring 0.348 int 0.122
+  noise         32.0%  A: ring 0.002 int 0.000  A_clean: ring 0.097 int 0.015  A_median: ring 0.006 int 0.000  A_trim: ring 0.001 int 0.000  B: ring 0.196 int 0.040
+  noise         50.0%  A: ring 0.003 int 0.000  A_clean: ring 0.055 int 0.018  A_median: ring 0.003 int 0.000  A_trim: ring 0.003 int 0.000  B: ring 0.108 int 0.017
+  othertexture  0.25%  A: ring 0.995 int nan  A_clean: ring 0.996 int nan  A_median: ring 0.972 int nan  A_trim: ring 0.997 int nan  B: ring 0.999 int nan
+  othertexture   0.5%  A: ring 0.986 int 0.926  A_clean: ring 0.988 int 0.932  A_median: ring 0.953 int 0.851  A_trim: ring 0.988 int 0.932  B: ring 0.986 int 0.923
+  othertexture   1.0%  A: ring 0.987 int 0.906  A_clean: ring 0.990 int 0.911  A_median: ring 0.960 int 0.832  A_trim: ring 0.992 int 0.913  B: ring 0.986 int 0.869
+  othertexture   2.0%  A: ring 0.961 int 0.890  A_clean: ring 0.971 int 0.899  A_median: ring 0.907 int 0.759  A_trim: ring 0.977 int 0.921  B: ring 0.943 int 0.729
+  othertexture   4.0%  A: ring 0.812 int 0.794  A_clean: ring 0.872 int 0.845  A_median: ring 0.738 int 0.593  A_trim: ring 0.851 int 0.868  B: ring 0.828 int 0.555
+  othertexture   8.0%  A: ring 0.622 int 0.534  A_clean: ring 0.768 int 0.757  A_median: ring 0.632 int 0.479  A_trim: ring 0.653 int 0.620  B: ring 0.697 int 0.415
+  othertexture  16.0%  A: ring 0.415 int 0.226  A_clean: ring 0.663 int 0.654  A_median: ring 0.534 int 0.412  A_trim: ring 0.405 int 0.215  B: ring 0.537 int 0.245
+  othertexture  32.0%  A: ring 0.199 int 0.008  A_clean: ring 0.556 int 0.581  A_median: ring 0.344 int 0.260  A_trim: ring 0.175 int 0.007  B: ring 0.432 int 0.159
+  othertexture  50.0%  A: ring 0.067 int 0.002  A_clean: ring 0.520 int 0.683  A_median: ring 0.079 int 0.028  A_trim: ring 0.059 int 0.002  B: ring 0.347 int 0.129
+
+g. Leave-one-texture-out pooled slopes (texture + type fixed effects)
+  without_carpet   A -8.852 [-9.061, -8.647]  A_clean -3.034 [-3.175, -2.897]  B -4.303 [-4.454, -4.159]
+  without_grid     A -8.238 [-8.414, -8.060]  A_clean -2.635 [-2.735, -2.532]  B -4.073 [-4.199, -3.949]
+  without_leather  A -8.832 [-9.063, -8.603]  A_clean -3.053 [-3.209, -2.902]  B -4.497 [-4.616, -4.377]
+  without_tile     A -8.295 [-8.539, -8.061]  A_clean -2.848 [-3.016, -2.681]  B -4.045 [-4.190, -3.904]
+  without_wood     A -8.605 [-8.837, -8.375]  A_clean -2.848 [-3.001, -2.700]  B -4.221 [-4.363, -4.078]
+   Texture x type slopes
+  carpet/blur            A -5.602 [-5.810, -5.395]  A_clean -1.167 [-1.241, -1.094]  B -1.206 [-1.253, -1.159]
+  carpet/hueshift        A -9.519 [-9.694, -9.340]  A_clean -4.292 [-4.428, -4.150]  B -5.874 [-6.069, -5.682]
+  carpet/noise           A -9.807 [-10.617, -8.935]  A_clean -3.534 [-4.373, -2.637]  B -7.832 [-8.435, -7.170]
+  carpet/othertexture    A -4.966 [-5.151, -4.779]  A_clean -0.202 [-0.228, -0.176]  B -0.825 [-0.849, -0.801]
+  grid/blur              A -9.922 [-10.315, -9.550]  A_clean -1.989 [-2.200, -1.808]  B -1.498 [-1.626, -1.376]
+  grid/hueshift          A -11.425 [-11.551, -11.296]  A_clean -6.241 [-6.415, -6.067]  B -6.503 [-6.818, -6.181]
+  grid/noise             A -13.964 [-14.296, -13.646]  A_clean -8.322 [-8.604, -8.028]  B -10.934 [-11.314, -10.554]
+  grid/othertexture      A -5.832 [-6.208, -5.448]  A_clean -0.172 [-0.197, -0.147]  B -1.234 [-1.303, -1.171]
+  leather/blur           A -3.592 [-3.791, -3.408]  A_clean -0.523 [-0.594, -0.455]  B -1.572 [-1.633, -1.521]
+  leather/hueshift       A -9.622 [-9.777, -9.474]  A_clean -4.292 [-4.437, -4.148]  B -6.623 [-6.809, -6.446]
+  leather/noise          A -11.801 [-12.063, -11.545]  A_clean -4.252 [-4.423, -4.078]  B -4.434 [-4.671, -4.200]
+  leather/othertexture   A -5.811 [-6.109, -5.515]  A_clean -0.246 [-0.270, -0.222]  B -0.841 [-0.879, -0.809]
+  tile/blur              A -6.784 [-7.073, -6.482]  A_clean -1.320 [-1.572, -1.062]  B -2.367 [-2.474, -2.261]
+  tile/hueshift          A -9.534 [-9.758, -9.312]  A_clean -4.454 [-4.633, -4.263]  B -5.593 [-5.753, -5.427]
+  tile/noise             A -11.033 [-11.578, -10.473]  A_clean -5.923 [-6.459, -5.370]  B -10.032 [-10.513, -9.506]
+  tile/othertexture      A -10.123 [-10.252, -9.987]  A_clean -0.195 [-0.213, -0.177]  B -1.096 [-1.129, -1.061]
+  wood/blur              A -5.905 [-6.373, -5.364]  A_clean -0.869 [-1.239, -0.437]  B -1.674 [-1.805, -1.544]
+  wood/hueshift          A -9.199 [-9.586, -8.808]  A_clean -4.852 [-5.148, -4.545]  B -6.634 [-7.004, -6.265]
+  wood/noise             A -11.582 [-11.932, -11.268]  A_clean -6.058 [-6.649, -5.552]  B -6.650 [-7.200, -6.116]
+  wood/othertexture      A -6.512 [-7.016, -6.045]  A_clean -0.471 [-0.539, -0.411]  B -2.043 [-2.145, -1.944]
+  (time 28s)
+
+Total analysis time 132.8s

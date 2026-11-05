@@ -1,0 +1,24 @@
+PART A: real defects, n=382, 25 texture x defect-type fixed effects, bootstrap 10000 over images
+
+Reproduction vs size_effect_robustness: max |diff| A 0.000000, B42 0.000000
+Mean per-image AUROC: A 95.43, A_clean 97.35, A_median 94.88, A_trim 95.48, B 98.70
+
+Slope of per-image pixel AUROC on log(area):
+  A         -3.887 [-5.477, -2.531]
+  A_clean   -1.930 [-2.953, -1.107]
+  A_median  -3.701 [-5.369, -2.332]
+  A_trim    -3.789 [-5.386, -2.438]
+  B         -1.177 [-2.138, -0.470]
+Differences of slopes:
+  A_clean - A         +1.957 [+1.284, +2.664]
+  A_median - A        +0.186 [-0.046, +0.459]
+  A_trim - A (extra)  +0.098 [+0.028, +0.169]
+  A_clean - B         -0.753 [-1.135, -0.361]
+Contamination index:
+  on log(area) (FE)                 +0.004 [+0.002, +0.005]   pooled Spearman +0.960
+  A ~ log(area) + contamination: log(area) -2.495 [-3.513, -1.569], contamination -385.577 [-693.240, -147.595]
+
+Criterion part 1 (A_clean - A > 0, CI excl. 0): met
+Criterion part 2 (A_clean no steeper than B, CI upper >= 0): NOT met
+VERDICT: contamination does not explain the real-defect size effect. A_clean is still steeper than B: the remainder of the size effect is unexplained.
+Analysis 16.6s, total 366.0s

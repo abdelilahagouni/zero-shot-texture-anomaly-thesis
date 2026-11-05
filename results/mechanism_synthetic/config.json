@@ -1,0 +1,45 @@
+{
+ "noise_sigma": 8,
+ "blur_sigma": 8.0,
+ "hue_deg": 60,
+ "val_mult": 0.65,
+ "other_texture_source": {
+  "carpet": "wood",
+  "grid": "leather",
+  "leather": "tile",
+  "tile": "carpet",
+  "wood": "grid"
+ },
+ "sizes": [
+  0.25,
+  0.5,
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  50
+ ],
+ "types": [
+  "othertexture",
+  "noise",
+  "blur",
+  "hueshift"
+ ],
+ "b_seeds": [
+  42,
+  123,
+  2026,
+  7,
+  11
+ ],
+ "too_subtle": [],
+ "B_auroc_at_4pct_by_type": {
+  "othertexture": 99.16503147644558,
+  "noise": 97.79939931465469,
+  "blur": 99.34740830477989,
+  "hueshift": 93.52926938826438
+ },
+ "estimate_minutes": 99.0
+}
