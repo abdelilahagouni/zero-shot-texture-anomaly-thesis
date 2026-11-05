@@ -1,0 +1,35 @@
+1. SIZE ANALYSIS, crop10 (52 px border of the 518 grid removed from maps and masks): 382 defective images, dropped 2 with the defect entirely in the border (grid/glue/008.png, tile/gray_stroke/012.png); n=380; x = log(defect area in the crop); 25 fixed effects; bootstrap 10000 over images
+  Slopes:
+    FCA   -0.337 [-0.778, +0.012]
+    aota  -0.932 [-1.693, -0.374]
+    A     -2.525 [-3.984, -1.516]
+    B     -1.057 [-1.809, -0.555]
+  Differences:
+    FCA-B   +0.720 [+0.267, +1.245]
+    aota-B  +0.125 [-0.447, +0.642]
+    FCA-A   +2.188 [+1.320, +3.436]
+    A-B     -1.468 [-2.296, -0.848]
+  (i)  FCA-B CI includes 0 or positive: met; A-B < 0, CI excl. 0: met -> supported
+  (ii) FCA-B < 0, CI excl. 0: NOT met -> not supported
+  VERDICT: (i) supported   (4.8s)
+
+2. BORDER DIAGNOSTIC, good test images (133: {'carpet': 28, 'grid': 21, 'leather': 32, 'tile': 33, 'wood': 19}); mean score in the 52 px border / mean interior score (interior = 1.000); B = mean of seeds [42, 123, 2026]
+               FCA    aota       A       B
+  carpet     1.050   1.420   1.090   1.073
+  grid       1.113   2.012   1.058   1.106
+  leather    1.100   1.594   1.102   1.150
+  tile       1.063   1.330   1.065   1.100
+  wood       1.066   1.389   1.061   1.020
+  pooled     1.077   1.471   1.077   1.087
+  (44.6s, peak GPU 676 MiB allocated)
+
+3. AOTA PROTOCOL CHECK: raw 320x320 aota maps, masks NEAREST to 320 (>128), 256x256 centre crop of maps and masks, pixel AUROC over all test images of the texture
+  carpet   ours  98.77   published  99.1   diff  -0.33   within 1.0: True
+  grid     ours  99.26   published  99.1   diff  +0.16   within 1.0: True
+  leather  ours  99.50   published  99.5   diff  -0.00   within 1.0: True
+  tile     ours  96.44   published  93.2   diff  +3.24   within 1.0: False
+  wood     ours  97.20   published  96.5   diff  +0.70   within 1.0: True
+  mean     ours  98.23   published 97.48   diff  +0.75
+  textures within 1.0: 4/5   (6.5s)
+
+Total 63.9s

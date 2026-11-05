@@ -1,0 +1,6 @@
+Crop10 follow-up, 2026-11-05 (project Python C:/Python313; RTX 3050 Laptop 4096 MiB)
+python src/fca_baseline/crop_analysis.py      65 s wall (script total 63.9 s)
+  1. size analysis crop10 (from results/fca_baseline/metrics/per_image_defective.csv, no model run)   4.8 s
+  2. border diagnostic: Route A/B maps of the 133 good images recomputed (DINOv2, plus the 150 train images for
+     the Route B banks), because only FCA/aota maps had been saved                                      44.6 s, peak GPU 676 MiB allocated
+  3. aota protocol check (saved 320x320 aota maps, no model run)                                         6.5 s
