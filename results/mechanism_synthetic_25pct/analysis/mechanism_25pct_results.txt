@@ -1,0 +1,42 @@
+25% ADD-ON ANALYSIS: 5320 synthetic images (10 sizes) from 133 base images; bootstrap 10000 over base images
+
+25% run drift control (clean image twice): max 2.384e-07, tokens identical 133/133
+
+(a) criterion (iii): diff = mean AUROC at 50% minus at 25%; holds if A diff < 0 with CI excl. 0 AND A_clean lower CI bound > -2
+  pooled       A  70.33-> 44.26 diff -26.075 [-26.794, -25.363]   A_clean  84.61-> 84.42 diff -0.193 [-0.553, +0.175]   A part met, A_clean part met -> holds: True
+  othertexture A  94.25-> 37.73 diff -56.524 [-59.291, -53.802]   A_clean  98.89-> 98.80 diff -0.097 [-0.212, +0.017]   A part met, A_clean part met -> holds: True
+  noise        A  46.60-> 36.77 diff -9.836 [-11.213, -8.493]   A_clean  69.53-> 70.59 diff +1.064 [-0.121, +2.204]   A part met, A_clean part met -> holds: True
+  blur         A  80.17-> 57.22 diff -22.949 [-24.160, -21.718]   A_clean  92.93-> 92.52 diff -0.409 [-0.931, +0.111]   A part met, A_clean part met -> holds: True
+  hueshift     A  60.30-> 45.31 diff -14.990 [-15.664, -14.299]   A_clean  77.10-> 75.77 diff -1.331 [-1.869, -0.788]   A part met, A_clean part met -> holds: True
+  holds pooled: True; holds in 4/4 types
+
+(b) per size: AUROC ~ drift(>5 patches) + texture x type fixed effects; coefficient [95% CI]
+  size  0.25%  n 532 (NaN drift dropped 0)   A +102.967 [+62.165, +156.576] sign + excl. 0   B +18.995 [+4.908, +41.272] sign + excl. 0
+  size   0.5%  n 532 (NaN drift dropped 0)   A +65.763 [+35.393, +132.968] sign + excl. 0   B +5.476 [-1.139, +19.494] sign + incl. 0
+  size   1.0%  n 532 (NaN drift dropped 0)   A +66.684 [+36.548, +104.499] sign + excl. 0   B -2.079 [-6.711, +2.531] sign - incl. 0
+  size   2.0%  n 532 (NaN drift dropped 0)   A +51.715 [+24.427, +85.797] sign + excl. 0   B -4.232 [-9.893, +1.337] sign - incl. 0
+  size   4.0%  n 532 (NaN drift dropped 0)   A +80.625 [+48.896, +116.004] sign + excl. 0   B +7.169 [-3.701, +19.008] sign + incl. 0
+  size   8.0%  n 532 (NaN drift dropped 0)   A +99.216 [+68.686, +136.601] sign + excl. 0   B +29.052 [+12.771, +48.141] sign + excl. 0
+  size  16.0%  n 532 (NaN drift dropped 0)   A +112.632 [+74.658, +152.427] sign + excl. 0   B +34.203 [+12.206, +58.592] sign + excl. 0
+  size  25.0%  n 532 (NaN drift dropped 0)   A +83.611 [+48.376, +120.127] sign + excl. 0   B +37.772 [+17.689, +59.302] sign + excl. 0
+  size  32.0%  n 532 (NaN drift dropped 0)   A +40.478 [+12.684, +71.064] sign + excl. 0   B +17.397 [-2.692, +37.511] sign + incl. 0
+  size  50.0%  n 532 (NaN drift dropped 0)   A +20.662 [-17.748, +59.063] sign + incl. 0   B -17.191 [-40.595, +5.930] sign - incl. 0
+  (within-estimator vs explicit dummy OLS, max |diff| 1.56e-11)
+  correlation of drift(>5 patches) with log(area):
+    pooled_all_sizes         n 5320  Pearson +0.581  Spearman +0.601
+    othertexture_all_sizes   n 1330  Pearson +0.880  Spearman +0.899
+    noise_all_sizes          n 1330  Pearson +0.479  Spearman +0.499
+    blur_all_sizes           n 1330  Pearson +0.853  Spearman +0.891
+    hueshift_all_sizes       n 1330  Pearson +0.786  Spearman +0.825
+    size_0.25                n  532  Pearson -0.061  Spearman -0.044
+    size_0.5                 n  532  Pearson +0.035  Spearman -0.013
+    size_1.0                 n  532  Pearson +0.031  Spearman -0.006
+    size_2.0                 n  532  Pearson +0.085  Spearman +0.070
+    size_4.0                 n  532  Pearson +0.052  Spearman +0.042
+    size_8.0                 n  532  Pearson +0.009  Spearman +0.006
+    size_16.0                n  532  Pearson -0.006  Spearman -0.002
+    size_25.0                n  532  Pearson +0.018  Spearman +0.026
+    size_32.0                n  532  Pearson -0.025  Spearman -0.021
+    size_50.0                n  532  Pearson +0.010  Spearman +0.009
+
+Total analysis time 2.8s
