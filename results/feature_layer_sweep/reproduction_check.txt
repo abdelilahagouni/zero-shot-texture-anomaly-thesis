@@ -1,0 +1,33 @@
+REPRODUCTION CHECK: L12 (get_intermediate_layers n=[11], norm=True), mean scoring, p1
+
+5-texture averages (full) vs existing:
+  A pixel_ap      32.0947 (rounded 32.09) existing 32.09  match
+  A au_pro        86.5992 (rounded 86.60) existing 86.60  match
+  A pixel_auroc   92.0793 (rounded 92.08) existing 92.08  match
+  A image_auroc   87.0486 (rounded 87.05) existing 87.05  match
+  B pixel_ap      50.0381 (rounded 50.04) existing 50.04  match
+  B au_pro        94.8538 (rounded 94.85) existing 94.85  match
+  B pixel_auroc   97.0004 (rounded 97.00) existing 97.00  match
+  B image_auroc   99.7911 (rounded 99.79) existing 99.79  match
+crop10_keep (border-only images kept as normal, as results/fca_baseline) vs metrics_table.csv:
+  A pixel_ap      43.7719 existing  43.7719  |diff| 0.00e+00  match
+  A au_pro        89.1440 existing  89.1440  |diff| 0.00e+00  match
+  A pixel_auroc   94.0834 existing  94.0834  |diff| 1.42e-14  match
+  A image_auroc   91.2655 existing  91.2655  |diff| 1.42e-14  match
+  B pixel_ap      51.2948 existing  51.2948  |diff| 0.00e+00  match
+  B au_pro        93.2025 existing  93.2025  |diff| 0.00e+00  match
+  B pixel_auroc   97.0564 existing  97.0564  |diff| 0.00e+00  match
+  B image_auroc   99.8935 existing  99.8935  |diff| 1.42e-14  match
+per-image pixel AUROC vs per_image_defective.csv (n matched 382 of 382):
+  A_mean full: max |diff| 0.000e+00, NaN pattern equal True  exact
+  A_mean_crop10: max |diff| 0.000e+00, NaN pattern equal True  exact
+  B42 full: max |diff| 0.000e+00, NaN pattern equal True  exact
+  B42_crop10: max |diff| 0.000e+00, NaN pattern equal True  exact
+  B123 full: max |diff| 0.000e+00, NaN pattern equal True  exact
+  B123_crop10: max |diff| 0.000e+00, NaN pattern equal True  exact
+  B2026 full: max |diff| 0.000e+00, NaN pattern equal True  exact
+  B2026_crop10: max |diff| 0.000e+00, NaN pattern equal True  exact
+crop10: border-only defective images dropped per texture {'carpet': 0, 'grid': 1, 'leather': 0, 'tile': 1, 'wood': 0} (total 2)
+
+REPRODUCTION: PASS   (1231s)
+ESTIMATE for the full stage: 45 remaining units x 245 s (mean of the 5 repro units) ~ 3.1 h

@@ -1,0 +1,7 @@
+PowerShell, one line each.
+
+Finished units (complete pairs; 50 = done; includes the 5 reproduction units):
+(Get-ChildItem "C:\Users\abdel\OneDrive\Desktop\zero shot\zero_shot_texture_anomaly\results\feature_layer_sweep\partial\*__per_image.csv" | Where-Object { Test-Path ($_.FullName -replace '__per_image\.csv$','__metrics.csv') }).Count
+
+Is the sweep's python running:
+Get-CimInstance Win32_Process -Filter "Name='python.exe'" | Where-Object { $_.CommandLine -like '*feature_layer_sweep*' } | Select-Object ProcessId, CreationDate, CommandLine

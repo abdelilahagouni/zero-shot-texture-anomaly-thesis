@@ -1,0 +1,23 @@
+Feature-layer sweep: how to resume (written 2026-11-05 22:12)
+
+STOPPED on request at 22:28:04, right after unit leather M789 p1 was saved: 26 of the 45 sweep units finished
+(31 of 50 unit pairs in partial/, incl. the 5 reproduction units), 19 units left (~65-70 min at ~215 s each); no .tmp files.
+Peak RAM of the stopped process (peak working set) 3499 MB; peak GPU 580 MiB allocated / 684 MiB reserved.
+Earlier state at 22:12: 21 of the 45 sweep units finished (26 of 50 unit files in partial/, incl. the 5 reproduction units);
+last saved unit: leather L8 p1 (22:09:13); the sweep's own estimate then: 1 h 15 min remaining.
+
+1. Resume the sweep (same arguments; finished units are skipped). From the project folder:
+   cd /d "C:\Users\abdel\OneDrive\Desktop\zero shot\zero_shot_texture_anomaly"
+   set PYTHONIOENCODING=utf-8
+   C:\Python313\python.exe -u src\feature_layer_sweep.py --stage full
+   (or double-click resume_layer_sweep.bat in the project folder)
+
+2. The analysis stage does NOT run automatically. After the sweep reports "full stage done" (50 unit pairs in partial/):
+   C:\Python313\python.exe -u src\feature_layer_sweep.py --stage analyze
+
+Resume behaviour: a unit (texture, layer, pooling) counts as finished only if BOTH
+partial\<texture>__<layer>__<pool>__metrics.csv and ...__per_image.csv exist. Each file is written to <name>.tmp and then
+renamed (os.replace), so a finished file is never half-written. A unit interrupted mid-way has no files (or only the
+metrics file) and is recomputed from scratch, overwriting anything it left. Leftover *.tmp files are harmless
+(not read); they can be deleted.
+Not done yet: analysis stage, environment file, commit.

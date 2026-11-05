@@ -1,0 +1,23 @@
+Feature-layer sweep: commands, timings, memory (RTX 3050 Laptop 4096 MiB; project Python C:/Python313)
+
+1. python -u src/feature_layer_sweep.py --stage repro      2026-11-05 20:42-21:02, 1233 s wall
+   5 units (L12 p1, all textures) -> REPRODUCTION: PASS (averages to 2 decimals; crop10_keep |diff| <= 1.4e-14;
+   per-image AUROC of A and B42/B123/B2026, full and crop10, exactly equal for all 382 images)
+2. python -u src/feature_layer_sweep.py --stage full       run 1: 2026-11-05 21:03:10-22:28:04, 5094 s wall
+   45 units to run; 26 finished; STOPPED on request at 22:28:04 right after leather M789 p1 was saved
+   (the unit that had just started, leather M789 p3, was killed with no files written).
+3. python -u src/feature_layer_sweep.py --stage full       run 2: 2026-11-06 01:32:24-02:39:20, 4017 s wall
+   "50 units, 31 done, 19 to run"; first unit leather M789 p3 (the interrupted one, recomputed from scratch).
+   01:32-01:51 the game VALORANT was running on the same GPU/CPU (GPU 88.6 C, SM clock 1395/2100 MHz, CPU 68%):
+   units took 530-581 s instead of ~200 s; after it was closed, 135-208 s per unit.
+4. python -u src/feature_layer_sweep.py --stage analyze    2026-11-06, 85 s wall
+
+Unit audit: 50/50 units with both CSVs and the expected row counts (12 metric rows, 18 for the 5 repro units;
+per-image rows = defective images of the texture); 0 .tmp files.
+  skipped by the full stage: the 5 repro units (carpet/grid/leather/tile/wood L12 p1), computed in stage 1;
+  re-run: none of the finished units; the only unit computed after an interruption was leather M789 p3 (no files
+  had been written for it in run 1); no unit appears in both run logs.
+Total compute wall time: 1233 + 5094 + 4017 + 85 = 10429 s (2 h 54 min).
+Peak memory of the sweep process: RAM (peak working set) run 1 3499 MB, run 2 3619 MB;
+  GPU (torch) peak 580 MiB allocated / 684 MiB reserved (run 1), 579 / 678 MiB (run 2).
+  Whole-card nvidia-smi samples: max 792 MiB in run 1; 3349 MiB in run 2 while VALORANT was running.

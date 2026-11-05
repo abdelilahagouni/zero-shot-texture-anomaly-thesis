@@ -1,0 +1,19 @@
+{
+ "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+ "gpu_total_MiB": 4096,
+ "nvidia_driver": "621.14",
+ "torch": "2.6.0+cu124",
+ "torch_cuda": "12.4",
+ "cudnn": 90100,
+ "tf32_matmul": false,
+ "tf32_cudnn": true,
+ "torchvision": "0.21.0+cu124",
+ "python": "3.13.2",
+ "numpy": "2.2.6",
+ "scipy": "1.17.1",
+ "scikit-learn": "1.8.0",
+ "opencv": "4.13.0",
+ "pillow": "12.2.0",
+ "os": "Windows-11-10.0.26200-SP0",
+ "dinov2": "torch.hub facebookresearch/dinov2 dinov2_vitb14 (hub cache C:/Users/abdel/.cache/torch/hub/facebookresearch_dinov2_main; no git metadata in hub cache (downloaded as zip))"
+}
