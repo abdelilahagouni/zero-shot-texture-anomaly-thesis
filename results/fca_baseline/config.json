@@ -1,0 +1,32 @@
+{
+ "fixed_before_any_results": "2026-11-05; only the timing/GPU-memory estimate (src/fca_baseline/estimate.py, no maps or metrics saved) had been run",
+ "fca": {
+  "command": "python main.py dataset=mvtec fe=wide sc=fca image_size=original tile_size=[9,9]",
+  "feature_extractor": "WideResnetExtractor(post_scale=True): WideResNet-50-2 up to layer2 (512 channels, stride 8), per-channel min-max scaling",
+  "sc": "ScFCA(tile_size=[9,9], chunk_size=8, sigma_p=3.0, reference_selection=median, k_s=5, sigma_s=1.0) (conf/sc/fca.yaml)",
+  "image_size": "original (1024 px; tile 840 px)",
+  "map_resolution": "128x128 (105x105 for tile)",
+  "reason": "the official full-resolution setting (README and paper Table 6); kept unchanged"
+ },
+ "aota": {
+  "command_equivalent": "python main.py dataset=mvtec fe=wide sc=aota image_size=[320,320] tile_size=[3,3]",
+  "feature_extractor": "WideResnetExtractor(post_scale=True), the same as for FCA",
+  "sc": "sc_aota(tile_size=[3,3], sigma=100.0, k=400) (conf/sc/aota.yaml passes tile_size; sigma and k are code defaults)",
+  "image_size": [320, 320],
+  "tile_size": [3, 3],
+  "map_resolution": "320x320 (40x40 feature grid = 1600 patches, scored, then resized to 320x320 and smoothed)",
+  "reasons": [
+   "Aota et al. (WACV 2023) as stated in the instruction: WideResNet-50 block 2, resize 320x320, 3x3 local average pooling, K=400 nearest neighbours out of 1600 patches, Gaussian sigma 4, 256x256 centre crop.",
+   "FCA paper: its 320x320 variant uses T=3 for consistency with Aota (Sec. 3.4 / App. D.2).",
+   "The earlier choice tile_size=[9,9] was only the repo default in conf/base.yaml; it was replaced by [3,3] before any aota result was computed."
+  ],
+  "sigma_100_explained": "In sc_aota, sigma=100 is the std (in feature-grid cells) of the Gaussian in op_utils.blur(features, kernel_size=tile_size[0], sigma=100), applied to the 40x40 feature map. With kernel size 3 a Gaussian of std 100 is flat: measured 1-D weights 0.333328-0.333344 (uniform 1/3); repo blur vs 3x3 average pooling (stride 1, reflect padding) max |diff| 1.35e-05 on random features. So sigma=100 implements the paper's 3x3 local average pooling; it is NOT the paper's Gaussian sigma 4.",
+  "paper_sigma_4": "corresponds to the last line of sc_aota: blur(F.interpolate(score, (320,320)), kernel_size=25, sigma=4.0), a Gaussian of std 4 px on the 320x320 output map (measured 1-D weights 0.0011-0.0999, i.e. a real Gaussian). Units: pixels of the 320x320 map. This matches the paper's Gaussian sigma 4 if the paper smooths the 320x320 map (stated as such in the instruction; not checked against the Aota paper text here).",
+  "k_400": "code default k=400: mean of the 400 smallest squared L2 distances from each patch to all 1600 patches of the same image (includes the patch itself, distance 0), matching K=400 of 1600.",
+  "centre_crop_256": "sc_aota does not crop. A 256x256 centre crop of a 320x320 map removes 32 px = 10% per side; the crop10 version of the metrics (52 of 518 px = 10% per side) corresponds to it. The full version is reported as well.",
+  "estimate_note": "the timing estimate was run with tile_size [9,9] (0.28 s/image); it is used only for the time estimate"
+ },
+ "evaluation_grid": "all maps resized to 518x518 (bilinear, cv2.INTER_LINEAR) to match the 518x518 NEAREST ground-truth masks of src/eval_router_full.py",
+ "crop10": "52 px removed on every side of the 518x518 map and mask; image labels from the cropped mask (as the repo's evaluate_experiment.py)",
+ "route_b_seeds": [42, 123, 2026]
+}

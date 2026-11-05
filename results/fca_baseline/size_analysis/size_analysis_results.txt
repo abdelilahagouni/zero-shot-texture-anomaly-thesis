@@ -1,0 +1,17 @@
+SIZE ANALYSIS: per-image pixel AUROC ~ log(area) + 25 texture x defect-type fixed effects; n=382; bootstrap 10000 over images (paired)
+
+Slopes:
+  FCA   -0.798 [-1.323, -0.339]
+  aota  -1.878 [-3.024, -0.845]
+  A     -3.887 [-5.484, -2.531]
+  B     -1.169 [-2.135, -0.475]
+Differences:
+  FCA-B   +0.372 [-0.188, +1.080]
+  aota-B  -0.709 [-1.740, +0.292]
+  FCA-A   +3.089 [+1.914, +4.430]
+  A-B     -2.717 [-3.488, -1.929]
+
+(i)  slope(FCA)-slope(B) CI includes 0 or positive: met; slope(A)-slope(B) < 0, CI excl. 0: met -> supported
+(ii) slope(FCA)-slope(B) < 0, CI excl. 0: NOT met -> not supported
+VERDICT: (i) supported
+(5.0s)

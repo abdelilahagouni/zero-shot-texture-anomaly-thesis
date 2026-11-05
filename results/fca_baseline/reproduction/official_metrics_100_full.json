@@ -1,0 +1,41 @@
+{
+    "carpet": {
+        "au_pro": 0.9543832297530374,
+        "classification_au_roc": 0.9959871589085072,
+        "au_segroc": 0.983048090805252,
+        "f1_optimal_value": 0.7258396371066792,
+        "f1_optimal_threshold": 0.0234530009329319
+    },
+    "grid": {
+        "au_pro": 0.9806869172175661,
+        "classification_au_roc": 0.9983766233766234,
+        "au_segroc": 0.9945581496641199,
+        "f1_optimal_value": 0.6162992581748997,
+        "f1_optimal_threshold": 0.028654027730226517
+    },
+    "leather": {
+        "au_pro": 0.9890155240854903,
+        "classification_au_roc": 0.9962635869565217,
+        "au_segroc": 0.9945124816110114,
+        "f1_optimal_value": 0.6606191799471478,
+        "f1_optimal_threshold": 0.026057705283164978
+    },
+    "tile": {
+        "au_pro": 0.9633456509564913,
+        "classification_au_roc": 0.9953933380581148,
+        "au_segroc": 0.9822180488825187,
+        "f1_optimal_value": 0.8216209465962689,
+        "f1_optimal_threshold": 0.025242550298571587
+    },
+    "wood": {
+        "au_pro": 0.9718273929007206,
+        "classification_au_roc": 0.9929824561403509,
+        "au_segroc": 0.9822269036875048,
+        "f1_optimal_value": 0.7633904453389176,
+        "f1_optimal_threshold": 0.028697073459625244
+    },
+    "mean_au_pro": 0.9718517429826612,
+    "mean_au_segroc": 0.9873127349300814,
+    "mean_classification_au_roc": 0.9958006326880235,
+    "mean_f1": 0.7175538934327826
+}

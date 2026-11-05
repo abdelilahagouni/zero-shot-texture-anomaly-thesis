@@ -1,0 +1,31 @@
+{
+ "fca_repo": {
+  "url": "https://github.com/TArdelean/AnomalyLocalizationFCA",
+  "commit": "afe8326790de30f33cf0e91db7c099bdc6608a84",
+  "commit_date": "2023-12-18 17:37:22 +0100",
+  "path": "third_party/AnomalyLocalizationFCA (not committed; files unmodified)",
+  "license": "MIT (third_party/AnomalyLocalizationFCA/LICENSE, Copyright 2023 Andrei-Timotei Ardelean, Tim Weyrich)",
+  "datasets_link": "datasets/mvtec_anomaly_detection = directory junction to data/mvtec"
+ },
+ "fca_venv": {
+  "path": "C:/Users/abdel/envs/fca (separate venv; project environment C:/Python313 untouched)",
+  "python": "3.13.2",
+  "torch": "2.6.0+cu124",
+  "torchvision": "0.21.0+cu124",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "scikit-learn": "1.9.1",
+  "scikit-image": "0.26.0",
+  "tifffile": "2026.10.15",
+  "hydra-core": "1.3.2",
+  "omegaconf": "2.3.0",
+  "opencv-python": "5.0.0",
+  "deviation_from_repo_environment_yml": "repo pins python 3.9.18, pytorch 2.1.2 (CUDA 11.8), tifffile 2023.2.28; no conda/other Python available, so python 3.13 + torch 2.6.0+cu124; tifffile.imsave aliased to imwrite (src/fca_baseline/run_official.py); repo evaluation read_tiff restricted to '.tiff' because Windows paths are case-insensitive (src/fca_baseline/run_official_eval.py)"
+ },
+ "route_ab_environment": "project Python C:/Python313 (torch 2.6.0+cu124), src/mechanism_common.py",
+ "gpu": {
+  "name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "total_MiB": 4096
+ },
+ "weights": "torchvision Wide_ResNet50_2_Weights.IMAGENET1K_V1 (wide_resnet50_2-95faca4d.pth)"
+}

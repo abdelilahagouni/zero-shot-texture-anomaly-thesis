@@ -1,0 +1,43 @@
+METRICS with src/evaluation.py (pixel AP, AU-PRO@0.3, pixel AUROC) + image AUROC (max of map); B = mean of seeds 42/123/2026
+crop10 = 52px border removed on each side of the 518x518 grid; defective images with the defect only in the border (become normal in crop10): {'carpet': 0, 'grid': 1, 'leather': 0, 'tile': 1, 'wood': 0}
+
+Route A / B42 per-image AUROC vs size_effect_robustness: n 382, max |diff| A 0.000000, B42 0.000000
+
+texture  method    pixel_ap full    pixel_ap crop10       au_pro full      au_pro crop10  pixel_auroc full pixel_auroc crop10  image_auroc full image_auroc crop10
+carpet   FCA              64.46              78.92             92.49              95.38             97.14              98.32             88.24              99.32
+carpet   aota             18.22              75.87             78.49              96.39             92.58              98.77             50.58             100.00
+carpet   A                37.26              47.26             92.50              94.40             96.12              97.11             91.65              95.39
+carpet   B                46.76              46.83             96.91              95.41             98.81              98.29             99.79              99.81
+
+grid     FCA              59.58              64.59             95.64              98.03             99.02              99.45             98.66              99.84
+grid     aota              5.68              52.16             77.01              97.59             92.68              99.26             30.24             100.00
+grid     A                31.48              37.63             89.24              90.94             97.63              98.04             88.89              92.13
+grid     B                49.88              50.09             96.70              96.63             99.41              99.24             99.97             100.00
+
+leather  FCA              66.03              72.04             98.23              98.90             98.96              99.45             99.12              99.66
+leather  aota             31.90              63.77             95.19              98.66             98.01              99.49             41.86             100.00
+leather  A                24.72              35.44             95.05              96.47             96.15              97.42             86.31              94.29
+leather  B                31.88              32.43             97.29              95.89             98.73              98.17            100.00             100.00
+
+tile     FCA              83.93              85.40             95.99              96.17             97.97              98.28             99.53              99.61
+tile     aota             38.25              72.27             80.96              92.26             90.83              96.44             42.41              99.82
+tile     A                34.93              48.97             72.26              76.12             86.13              89.28             91.81              92.42
+tile     B                59.54              60.75             89.78              86.00             95.81              95.14             99.52              99.98
+
+wood     FCA              78.00              82.85             97.03              97.15             97.26              98.23             99.74              99.30
+wood     aota             37.68              68.40             87.17              94.78             92.83              97.19             29.65              96.84
+wood     A                32.09              49.56             83.95              87.80             84.37              88.57             76.58              82.11
+wood     B                62.13              66.38             93.59              92.07             92.24              94.45             99.68              99.68
+
+average  FCA              70.40              76.76             95.88              97.13             98.07              98.75             97.06              99.54
+average  aota             26.34              66.49             83.77              95.94             93.38              98.23             38.95              99.33
+average  A                32.09              43.77             86.60              89.14             92.08              94.08             87.05              91.27
+average  B                50.04              51.29             94.85              93.20             97.00              97.06             99.79              99.89
+
+Per-image pixel AUROC of the defective images (mean [median]; crop10 excludes NaN):
+  FCA   full n 382 mean 98.69 [median 99.48]   crop10 n 380 mean 99.10 [median 99.68]
+  aota  full n 382 mean 95.11 [median 96.55]   crop10 n 380 mean 98.59 [median 99.50]
+  A     full n 382 mean 95.43 [median 97.96]   crop10 n 380 mean 96.32 [median 98.68]
+  B     full n 382 mean 98.70 [median 99.17]   crop10 n 380 mean 98.20 [median 98.82]
+
+Total 937s, peak GPU 676 MiB allocated

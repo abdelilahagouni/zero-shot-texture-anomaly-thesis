@@ -1,0 +1,24 @@
+FCA / aota baseline: exact commands, timings, GPU memory (RTX 3050 Laptop, 4096 MiB), 2026-11-05
+V = C:/Users/abdel/envs/fca/Scripts/python.exe (separate venv); python = project Python C:/Python313
+
+1. setup
+   git clone https://github.com/TArdelean/AnomalyLocalizationFCA third_party/AnomalyLocalizationFCA   -> commit afe8326790de30f33cf0e91db7c099bdc6608a84
+   python -m venv C:/Users/abdel/envs/fca; V -m pip install torch==2.6.0 torchvision==0.21.0 (cu124 index) hydra-core==1.3.2 omegaconf==2.3.0
+       antlr4-python3-runtime==4.9.3 opencv-python scikit-image scikit-learn scipy tifffile tqdm pillow numpy pandas      431 s
+   New-Item -ItemType Junction datasets/mvtec_anomaly_detection -> data/mvtec
+2. estimate:  V src/fca_baseline/estimate.py      408 s (incl. 132 MB weight download)
+   fca full res 3.47 s/image (carpet), 2.32 s/image (tile), peak 1874 MiB allocated / 2814 MiB reserved -> ~25 min
+   aota 320 (timed with tile 9x9) 0.28 s/image, 51 MiB allocated -> ~2.4 min
+3. reproduction (official command)
+   V src/fca_baseline/run_official.py dataset=mvtec fe=wide sc=fca image_size=original tile_size=[9,9]
+     first attempt: Hydra "Primary config module 'conf' not found" (main imported as a module), 7 s, nothing computed;
+       wrapper changed to runpy.run_path(main.py) and rerun
+     rerun: 515 maps 1669 s, peak GPU 1874 MiB allocated / 2814 MiB reserved; the repo's evaluation then failed on Windows
+       ("Found multiple files with a TIFF extension": .tiff and .TIFF are the same path on Windows)
+   V src/fca_baseline/run_official_eval.py third_party/AnomalyLocalizationFCA/outputs/mvtec_wide_FCA_2026-11-05_17-39-43     190 s
+   V src/fca_baseline/compare_reproduction.py --run <same folder> --variant full   -> PASS (every texture within 0.01 on PRO and pixel AUROC)
+4. maps
+   V src/fca_baseline/save_maps.py --method fca --official-run <same folder>      1 s   (515 maps, 128x128; tile 105x105)
+   V src/fca_baseline/save_maps.py --method aota                                  146 s (0.27 s/image, 320x320, tile 3x3; peak 51 MiB allocated / 298 MiB reserved)
+5. metrics:   python src/fca_baseline/evaluate.py         950 s, peak GPU 676 MiB allocated (Route A/B DINOv2 maps)
+6. size:      python src/fca_baseline/size_analysis.py    6 s (10,000 bootstrap resamples)
