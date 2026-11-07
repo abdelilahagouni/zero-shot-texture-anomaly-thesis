@@ -1,0 +1,23 @@
+# Dataset (MVTec AD, CC BY-NC-SA 4.0): download separately, see REPRODUCE.md
+data/
+
+# External code: clone at the commit given in REPRODUCE.md
+third_party/
+
+# Model weights, token caches, raw maps
+*.pt
+*.pth
+*.npy
+*.npz
+results/fca_baseline/maps/
+
+# Synthetic defect images (regenerated deterministically from fixed seeds)
+results/defect_size_sweep/synthetic/
+results/defect_size_sweep_quick/synthetic/
+results/mechanism_synthetic/sanity/preview_grid.png
+
+# Python / temporary files
+__pycache__/
+*.pyc
+*.tmp
+.ipynb_checkpoints/
