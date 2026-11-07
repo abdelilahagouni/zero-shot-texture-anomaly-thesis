@@ -58,6 +58,16 @@ From `results/fca_baseline/metrics/metrics.txt` (Route B = mean of seeds 42, 123
 - **Results:** `results/per_image_latest_1791743390.csv` (per-image values of the 382 defective images, used as
   the reference by later experiments); `results/summary.md` is the summary of a **carpet-only** run of the same script.
 
+### 0b. Experiment suite (numbers used in the slides)
+- **Question:** Route A vs Route B (k = 4) vs a SubspaceAD-style PCA baseline, per-image oracle routing, and a
+  small/large defect breakdown, on all five textures.
+- **Command:** `python src/run_full_experiments_suite.py`
+- **Results:** `results/experiments_suite_results.json` (log: `results/suite_execution.log`, UTF-16 encoded)
+- **5-texture averages** (mean of the per-texture values in the JSON): pixel AP A 32.09, B 50.04 (**B − A +17.94**),
+  SubspaceAD 49.67; AU-PRO A 86.60, B 94.85 (**B − A +8.26**), SubspaceAD 94.52; pixel AUROC A 92.08, B 97.00,
+  SubspaceAD 96.85; image AUROC A 87.04, B 99.79, SubspaceAD 99.62. These agree with the later recomputation in
+  `results/fca_baseline/metrics/metrics.txt` (the table above).
+
 ### 1. Defect-size sweep (synthetic defects)
 - **Question:** how do Route A and Route B change as a pasted defect grows from 0.25 % to 32 % of the image?
 - **Command:** `python src/run_defect_size_sweep.py` then `python src/analyze_defect_size_sweep.py`
