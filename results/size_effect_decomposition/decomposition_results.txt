@@ -1,0 +1,29 @@
+SIZE-EFFECT DECOMPOSITION (per-image pixel AUROC; x = log defect area; 95% bootstrap CIs over images)
+
+Per texture:
+  carpet   n= 89  Spearman A -0.791 [-0.853, -0.693]  B -0.698 [-0.786, -0.569]
+                  slope A -1.763 [-2.378, -1.250]  slope B -0.436 [-0.566, -0.318]  A-B -1.327 [-1.864, -0.884]
+  grid     n= 57  Spearman A -0.507 [-0.674, -0.281]  B -0.628 [-0.759, -0.427]
+                  slope A -1.499 [-2.279, -0.848]  slope B -0.405 [-0.572, -0.270]  A-B -1.094 [-1.778, -0.512]
+  leather  n= 92  Spearman A -0.744 [-0.832, -0.618]  B -0.394 [-0.579, -0.178]
+                  slope A -2.113 [-2.670, -1.531]  slope B -0.299 [-0.437, -0.137]  A-B -1.814 [-2.323, -1.288]
+  tile     n= 84  Spearman A -0.780 [-0.859, -0.662]  B -0.633 [-0.743, -0.485]
+                  slope A -6.860 [-8.450, -5.306]  slope B -1.537 [-2.589, -0.799]  A-B -5.323 [-6.619, -4.029]
+  wood     n= 60  Spearman A -0.575 [-0.749, -0.339]  B -0.326 [-0.540, -0.077]
+                  slope A -5.806 [-9.771, -2.471]  slope B -1.657 [-4.079, -0.121]  A-B -4.148 [-5.952, -2.266]
+
+Pooled, 25 texture x defect-type fixed effects, n=382:
+  coef A on log(area)         -3.887 [-5.484, -2.531]
+  coef B on log(area)         -1.177 [-2.141, -0.472]
+  coef A - coef B             -2.710 [-3.487, -1.918]
+  within-group Spearman A     -0.489 [-0.566, -0.389]
+  within-group Spearman B     -0.430 [-0.503, -0.318]
+Ceiling check (pooled, fixed effects):
+  errA - errB on log(area)    +2.710 [+1.918, +3.487]   (identical to d = B - A)
+  log(errA/errB) on log(area) +0.159 [+0.025, +0.292]
+
+Criterion (a) coef A < 0, CI excl. 0: met
+Criterion (b) coef A - coef B < 0, CI excl. 0: met
+Criterion (c) log error-ratio coef > 0, CI excl. 0: met
+VERDICT: supported
+Time: 91.8s

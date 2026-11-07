@@ -1,0 +1,30 @@
+CARPET (texture): good=28 defect=89 (small=45, large=44, median area 1.48%)
+  all   mean_map= 98.03 [ 95.79, 99.60]  max_map= 91.65 [ 85.71, 96.23]  top1pct_map= 99.32 [ 98.07,100.00]  sigma2= 98.03 [ 95.75, 99.56]
+  small mean_map= 96.59 [ 92.54, 99.37]  max_map= 93.81 [ 88.17, 97.78]  top1pct_map= 98.65 [ 96.19,100.00]  sigma2= 96.59 [ 92.54, 99.29]
+  large mean_map= 99.51 [ 98.05,100.00]  max_map= 89.45 [ 81.57, 95.62]  top1pct_map=100.00 [100.00,100.00]  sigma2= 99.51 [ 98.05,100.00]
+  equivalence (Spearman): sigma2~raw-score-mean +1.0000, sigma2~off_diag -1.0000, sigma2~mean_map +1.0000
+GRID (texture): good=21 defect=57 (small=29, large=28, median area 0.59%)
+  all   mean_map= 98.66 [ 95.99,100.00]  max_map= 88.89 [ 80.95, 95.24]  top1pct_map= 95.74 [ 90.31, 99.50]  sigma2= 98.66 [ 96.07,100.00]
+  small mean_map= 98.52 [ 95.57,100.00]  max_map= 91.46 [ 82.92, 97.87]  top1pct_map= 96.39 [ 90.47,100.00]  sigma2= 98.52 [ 95.40,100.00]
+  large mean_map= 98.81 [ 95.92,100.00]  max_map= 86.22 [ 75.17, 95.07]  top1pct_map= 95.07 [ 88.44, 99.32]  sigma2= 98.81 [ 96.26,100.00]
+  equivalence (Spearman): sigma2~raw-score-mean +1.0000, sigma2~off_diag -1.0000, sigma2~mean_map +1.0000
+LEATHER (texture): good=32 defect=92 (small=46, large=46, median area 0.46%)
+  all   mean_map= 99.69 [ 99.01,100.00]  max_map= 86.28 [ 78.53, 92.83]  top1pct_map= 94.70 [ 89.98, 98.27]  sigma2= 99.69 [ 98.98,100.00]
+  small mean_map= 99.46 [ 98.17,100.00]  max_map= 86.62 [ 77.17, 94.84]  top1pct_map= 94.97 [ 89.61, 98.91]  sigma2= 99.46 [ 98.17,100.00]
+  large mean_map= 99.93 [ 99.59,100.00]  max_map= 85.94 [ 77.24, 93.68]  top1pct_map= 94.43 [ 89.13, 98.37]  sigma2= 99.93 [ 99.59,100.00]
+  equivalence (Spearman): sigma2~raw-score-mean +1.0000, sigma2~off_diag -1.0000, sigma2~mean_map +1.0000
+TILE (texture): good=33 defect=84 (small=42, large=42, median area 7.93%)
+  all   mean_map= 99.78 [ 99.24,100.00]  max_map= 91.81 [ 86.36, 96.36]  top1pct_map= 93.69 [ 89.29, 97.33]  sigma2= 99.78 [ 99.28,100.00]
+  small mean_map= 99.57 [ 98.48,100.00]  max_map= 92.14 [ 85.86, 97.11]  top1pct_map= 92.06 [ 85.35, 97.11]  sigma2= 99.57 [ 98.56,100.00]
+  large mean_map=100.00 [100.00,100.00]  max_map= 91.49 [ 83.98, 97.55]  top1pct_map= 95.31 [ 89.61, 99.28]  sigma2=100.00 [100.00,100.00]
+  equivalence (Spearman): sigma2~raw-score-mean +1.0000, sigma2~off_diag -1.0000, sigma2~mean_map +1.0000
+WOOD (texture): good=19 defect=60 (small=30, large=30, median area 2.89%)
+  all   mean_map= 94.04 [ 88.51, 98.16]  max_map= 76.58 [ 64.56, 87.37]  top1pct_map= 93.95 [ 87.98, 98.51]  sigma2= 94.04 [ 88.51, 98.33]
+  small mean_map= 92.98 [ 84.56, 99.12]  max_map= 78.60 [ 64.91, 90.00]  top1pct_map= 95.26 [ 88.95, 99.47]  sigma2= 92.98 [ 84.39, 99.12]
+  large mean_map= 95.09 [ 88.60, 99.30]  max_map= 74.56 [ 59.82, 87.02]  top1pct_map= 92.63 [ 84.21, 98.95]  sigma2= 95.09 [ 88.77, 99.30]
+  equivalence (Spearman): sigma2~raw-score-mean +1.0000, sigma2~off_diag -1.0000, sigma2~mean_map +1.0000
+
+Criterion 1 (mean > max, non-overlapping 95% CIs, small subset, >= 4 of 5 textures): 2/5 ['leather', 'tile'] -> NOT met
+Criterion 2 (held-out majority): not evaluable, no held-out categories under data root
+VERDICT: not supported
+Total time: 283.7s

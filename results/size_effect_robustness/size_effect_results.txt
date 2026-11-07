@@ -1,0 +1,58 @@
+SIZE-EFFECT ROBUSTNESS (d = mean of 10 Route B seeds - Route A; per defective image)
+
+Reproduction vs per_image_latest_1791743390.csv (382/382 images matched): Route A max |diff| 0.000000, Route B seed 42 max |diff| 0.000000 (AUROC points)
+
+Per texture, Spearman(log area, d) [95% bootstrap CI]:
+  carpet   n= 89  AUROC rho=+0.610 [+0.465, +0.717]   AP rho=+0.403 [+0.212, +0.567]
+  grid     n= 57  AUROC rho=+0.485 [+0.245, +0.668]   AP rho=+0.289 [+0.022, +0.521]
+  leather  n= 92  AUROC rho=+0.702 [+0.568, +0.802]   AP rho=+0.380 [+0.174, +0.560]
+  tile     n= 84  AUROC rho=+0.697 [+0.545, +0.809]   AP rho=+0.220 [-0.005, +0.423]
+  wood     n= 60  AUROC rho=+0.579 [+0.356, +0.744]   AP rho=+0.258 [+0.010, +0.480]
+
+Within defect type (>= 10 images), Spearman(log area, d):
+  carpet/color               n=19  AUROC rho=+0.774 [+0.453, +0.926]   AP rho=-0.174 [-0.617, +0.377]
+  carpet/cut                 n=17  AUROC rho=+0.127 [-0.439, +0.633]   AP rho=-0.127 [-0.553, +0.459]
+  carpet/hole                n=17  AUROC rho=+0.208 [-0.315, +0.636]   AP rho=+0.064 [-0.461, +0.573]
+  carpet/metal_contamination n=17  AUROC rho=+0.349 [-0.186, +0.744]   AP rho=+0.334 [-0.259, +0.790]
+  carpet/thread              n=19  AUROC rho=-0.088 [-0.637, +0.445]   AP rho=+0.104 [-0.392, +0.554]
+  grid/bent                  n=12  AUROC rho=+0.217 [-0.600, +0.807]   AP rho=+0.105 [-0.572, +0.711]
+  grid/broken                n=12  AUROC rho=+0.476 [-0.270, +0.864]   AP rho=+0.000 [-0.785, +0.680]
+  grid/glue                  n=11  AUROC rho=-0.509 [-0.990, +0.318]   AP rho=-0.445 [-0.858, +0.268]
+  grid/metal_contamination   n=11  AUROC rho=+0.264 [-0.493, +0.804]   AP rho=-0.091 [-0.775, +0.583]
+  grid/thread                n=11  AUROC rho=+0.382 [-0.458, +0.897]   AP rho=+0.664 [-0.014, +0.972]
+  leather/color              n=19  AUROC rho=+0.484 [-0.027, +0.808]   AP rho=-0.128 [-0.650, +0.451]
+  leather/cut                n=19  AUROC rho=+0.398 [-0.047, +0.763]   AP rho=+0.053 [-0.437, +0.552]
+  leather/fold               n=17  AUROC rho=+0.657 [+0.249, +0.888]   AP rho=-0.181 [-0.635, +0.418]
+  leather/glue               n=19  AUROC rho=+0.458 [-0.059, +0.813]   AP rho=-0.260 [-0.704, +0.249]
+  leather/poke               n=18  AUROC rho=+0.368 [-0.156, +0.805]   AP rho=+0.406 [-0.070, +0.730]
+  tile/crack                 n=17  AUROC rho=+0.260 [-0.275, +0.685]   AP rho=+0.341 [-0.192, +0.793]
+  tile/glue_strip            n=18  AUROC rho=+0.523 [+0.056, +0.825]   AP rho=+0.172 [-0.309, +0.577]
+  tile/gray_stroke           n=16  AUROC rho=+0.735 [+0.382, +0.895]   AP rho=+0.062 [-0.524, +0.665]
+  tile/oil                   n=18  AUROC rho=+0.327 [-0.211, +0.785]   AP rho=+0.459 [-0.088, +0.892]
+  tile/rough                 n=15  AUROC rho=+0.686 [+0.237, +0.912]   AP rho=-0.232 [-0.695, +0.347]
+  wood/color                 n= 8  skipped (<10)
+  wood/combined              n=11  AUROC rho=+0.527 [-0.103, +0.897]   AP rho=+0.455 [-0.211, +0.811]
+  wood/hole                  n=10  AUROC rho=+0.624 [-0.080, +1.000]   AP rho=+0.309 [-0.538, +0.899]
+  wood/liquid                n=10  AUROC rho=+0.576 [-0.118, +0.925]   AP rho=+0.127 [-0.529, +0.727]
+  wood/scratch               n=21  AUROC rho=+0.605 [+0.152, +0.856]   AP rho=+0.518 [+0.101, +0.797]
+
+Pooled OLS d ~ log(area) + texture x defect-type fixed effects, SE clustered by image (CR1):
+  AUROC coef on log(area) = +2.710 (SE 0.403), 95% CI [+1.918, +3.502]  n=382, 25 fixed effects
+  AP    coef on log(area) = +2.936 (SE 1.512), 95% CI [-0.037, +5.909]  n=382, 25 fixed effects
+
+Seed variability of per-texture mean d (pixel AUROC), small / large:
+  carpet   small seed42  +0.25  10-seed mean  +0.20  SD 0.03  range [+0.16, +0.25]
+  carpet   large seed42  +2.71  10-seed mean  +2.65  SD 0.04  range [+2.60, +2.71]
+  grid     small seed42  +0.89  10-seed mean  +0.87  SD 0.02  range [+0.82, +0.89]
+  grid     large seed42  +2.05  10-seed mean  +2.02  SD 0.03  range [+1.97, +2.06]
+  leather  small seed42  -0.41  10-seed mean  -0.25  SD 0.17  range [-0.53, -0.04]
+  leather  large seed42  +2.12  10-seed mean  +2.20  SD 0.06  range [+2.12, +2.30]
+  tile     small seed42  +3.93  10-seed mean  +3.88  SD 0.06  range [+3.77, +3.94]
+  tile     large seed42 +11.88  10-seed mean +11.65  SD 0.12  range [+11.47, +11.88]
+  wood     small seed42  +2.25  10-seed mean  +2.24  SD 0.09  range [+2.09, +2.34]
+  wood     large seed42  +7.59  10-seed mean  +7.74  SD 0.18  range [+7.47, +8.03]
+
+Criterion: Spearman>0 with CI excl. 0 on >=4/5 textures: 5/5 ['carpet', 'grid', 'leather', 'tile', 'wood']; pooled AUROC coef >0 with CI excl. 0: True
+VERDICT: supported
+Within defect types: 6/24 tested types positive with CI excluding 0: ['carpet/color', 'leather/fold', 'tile/glue_strip', 'tile/gray_stroke', 'tile/rough', 'wood/scratch']
+Analysis time 120.1s, total 568.4s

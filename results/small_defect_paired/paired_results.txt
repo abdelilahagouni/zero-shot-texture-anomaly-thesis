@@ -1,0 +1,30 @@
+Paired per-image pixel AUROC, d = Route B (seed 42) - Route A, in points
+
+CARPET  (median defect area 1.48% of image)
+  small n=45  mean d= +0.25 [ +0.07,  +0.46]  median d= -0.01  Wilcoxon p=0.607 (Holm 0.607)  A>B in 56%
+  large n=44  mean d= +2.71 [ +1.94,  +3.61]  median d= +2.47  Wilcoxon p=1.69e-10 (Holm 6.74e-10)  A>B in 9%
+  d(large) - d(small) =  +2.46 [ +1.67,  +3.39]
+
+GRID  (median defect area 0.59% of image)
+  small n=29  mean d= +0.89 [ +0.38,  +1.59]  median d= +0.17  Wilcoxon p=3.18e-05 (Holm 9.54e-05)  A>B in 21%
+  large n=28  mean d= +2.05 [ +1.30,  +2.90]  median d= +1.39  Wilcoxon p=1.54e-06 (Holm 1.54e-06)  A>B in 14%
+  d(large) - d(small) =  +1.16 [ +0.13,  +2.19]
+
+LEATHER  (median defect area 0.46% of image)
+  small n=46  mean d= -0.41 [ -0.65,  -0.20]  median d= -0.18  Wilcoxon p=0.00189 (Holm 0.00379)  A>B in 67%
+  large n=46  mean d= +2.12 [ +1.39,  +2.95]  median d= +0.90  Wilcoxon p=3.69e-10 (Holm 1.11e-09)  A>B in 9%
+  d(large) - d(small) =  +2.54 [ +1.76,  +3.39]
+
+TILE  (median defect area 7.93% of image)
+  small n=42  mean d= +3.93 [ +2.60,  +5.46]  median d= +1.98  Wilcoxon p=2.61e-09 (Holm 1.3e-08)  A>B in 12%
+  large n=42  mean d=+11.88 [ +9.77, +14.13]  median d=+10.02  Wilcoxon p=1.36e-12 (Holm 6.82e-12)  A>B in 2%
+  d(large) - d(small) =  +7.95 [ +5.35, +10.59]
+
+WOOD  (median defect area 2.89% of image)
+  small n=30  mean d= +2.25 [ +1.35,  +3.44]  median d= +1.14  Wilcoxon p=2.61e-08 (Holm 1.04e-07)  A>B in 7%
+  large n=30  mean d= +7.59 [ +5.03, +10.55]  median d= +4.43  Wilcoxon p=5.59e-09 (Holm 1.12e-08)  A>B in 3%
+  d(large) - d(small) =  +5.34 [ +2.54,  +8.46]
+
+C1 Route A beats Route B on small defects (Holm p<0.05, median d<0, >=2 textures): 1/5 ['leather'] -> not supported
+C2 Route B degrades relative to A with size (d(large)>d(small), CI excludes 0, >=3 textures): 5/5 ['carpet', 'grid', 'leather', 'tile', 'wood'] -> supported
+Time: 1.0s
