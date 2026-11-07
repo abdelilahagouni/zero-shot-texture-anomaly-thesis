@@ -1,0 +1,227 @@
+{
+  "carpet": {
+    "Route_A": {
+      "pixel_auroc": 96.12068630942035,
+      "pixel_ap": 37.26040965795356,
+      "au_pro": 92.50293456094394,
+      "image_auroc": 91.65329052969501
+    },
+    "Route_B_NN_mean": {
+      "pixel_auroc": 98.80951543398756,
+      "pixel_ap": 46.75568628270409,
+      "au_pro": 96.9051707482862,
+      "image_auroc": 99.78598180845371
+    },
+    "SubspaceAD_PCA_mean": {
+      "pixel_auroc": 98.747501354478,
+      "pixel_ap": 45.92072021312536,
+      "au_pro": 96.83795517673279,
+      "image_auroc": 99.90636704119851
+    },
+    "Per_Image_Oracle": {
+      "pixel_auroc": 84.89176760393701,
+      "pixel_ap": 10.4750238206584,
+      "au_pro": 61.19637419547279,
+      "image_auroc": 99.91974317817015
+    },
+    "Oracle_A_picks": 29,
+    "Oracle_total_defects": 89,
+    "Defect_Size_Median": 3982.0,
+    "Small_Defects": {
+      "count": 45,
+      "Route_A_AUROC": 98.57624304781861,
+      "Route_A_AP": 37.01583728248995,
+      "Route_B_AUROC": 99.04112542136296,
+      "Route_B_AP": 34.06615558728443
+    },
+    "Large_Defects": {
+      "count": 44,
+      "Route_A_AUROC": 94.85788357411144,
+      "Route_A_AP": 54.35569376254726,
+      "Route_B_AUROC": 98.46695480333277,
+      "Route_B_AP": 66.15729018183157
+    },
+    "Periodicity_Mean_Good": 0.5001123952014106,
+    "Periodicity_Mean_Defect": 0.5042106730214665
+  },
+  "grid": {
+    "Route_A": {
+      "pixel_auroc": 97.62958992274315,
+      "pixel_ap": 31.478087794808197,
+      "au_pro": 89.2411575906214,
+      "image_auroc": 88.88888888888889
+    },
+    "Route_B_NN_mean": {
+      "pixel_auroc": 99.41467270606825,
+      "pixel_ap": 49.879876557026364,
+      "au_pro": 96.70164207776588,
+      "image_auroc": 99.97215260373154
+    },
+    "SubspaceAD_PCA_mean": {
+      "pixel_auroc": 99.39566652167632,
+      "pixel_ap": 49.75333454102368,
+      "au_pro": 96.27139967243151,
+      "image_auroc": 99.91645781119466
+    },
+    "Per_Image_Oracle": {
+      "pixel_auroc": 94.16986556356221,
+      "pixel_ap": 14.02509240240628,
+      "au_pro": 77.28701202161808,
+      "image_auroc": 99.91645781119465
+    },
+    "Oracle_A_picks": 10,
+    "Oracle_total_defects": 57,
+    "Defect_Size_Median": 1586.0,
+    "Small_Defects": {
+      "count": 29,
+      "Route_A_AUROC": 98.34564016446572,
+      "Route_A_AP": 28.45644648790786,
+      "Route_B_AUROC": 99.4396444841161,
+      "Route_B_AP": 38.02260627023764
+    },
+    "Large_Defects": {
+      "count": 28,
+      "Route_A_AUROC": 96.55649966118429,
+      "Route_A_AP": 36.66352502767736,
+      "Route_B_AUROC": 99.00571234707894,
+      "Route_B_AP": 55.87033656593297
+    },
+    "Periodicity_Mean_Good": 0.5397195588974726,
+    "Periodicity_Mean_Defect": 0.4864917967403144
+  },
+  "leather": {
+    "Route_A": {
+      "pixel_auroc": 96.15200886630629,
+      "pixel_ap": 24.718151427610184,
+      "au_pro": 95.04621589642534,
+      "image_auroc": 86.27717391304348
+    },
+    "Route_B_NN_mean": {
+      "pixel_auroc": 98.73206224955942,
+      "pixel_ap": 31.882538893038674,
+      "au_pro": 97.2922713292519,
+      "image_auroc": 100.0
+    },
+    "SubspaceAD_PCA_mean": {
+      "pixel_auroc": 98.62055104915783,
+      "pixel_ap": 33.657704674510455,
+      "au_pro": 97.32633272244847,
+      "image_auroc": 100.0
+    },
+    "Per_Image_Oracle": {
+      "pixel_auroc": 87.96220326555078,
+      "pixel_ap": 10.55948468216832,
+      "au_pro": 79.14695483958548,
+      "image_auroc": 100.0
+    },
+    "Oracle_A_picks": 35,
+    "Oracle_total_defects": 92,
+    "Defect_Size_Median": 1232.0,
+    "Small_Defects": {
+      "count": 46,
+      "Route_A_AUROC": 99.50920595798264,
+      "Route_A_AP": 31.795543517765797,
+      "Route_B_AUROC": 99.21656169731327,
+      "Route_B_AP": 19.484331831039785
+    },
+    "Large_Defects": {
+      "count": 46,
+      "Route_A_AUROC": 94.40159250768674,
+      "Route_A_AP": 27.560125278596292,
+      "Route_B_AUROC": 97.98890564564209,
+      "Route_B_AP": 38.77698973771684
+    },
+    "Periodicity_Mean_Good": 0.37076064199209213,
+    "Periodicity_Mean_Defect": 0.4399880750671677
+  },
+  "tile": {
+    "Route_A": {
+      "pixel_auroc": 86.1267968132936,
+      "pixel_ap": 34.92877840100244,
+      "au_pro": 72.25713041041763,
+      "image_auroc": 91.8109668109668
+    },
+    "Route_B_NN_mean": {
+      "pixel_auroc": 95.80898790759731,
+      "pixel_ap": 59.540483256411356,
+      "au_pro": 89.7789647962011,
+      "image_auroc": 99.51899951899952
+    },
+    "SubspaceAD_PCA_mean": {
+      "pixel_auroc": 95.48926660558489,
+      "pixel_ap": 58.229704348975766,
+      "au_pro": 88.8233090690747,
+      "image_auroc": 99.72342472342473
+    },
+    "Per_Image_Oracle": {
+      "pixel_auroc": 92.36500949916365,
+      "pixel_ap": 37.23528522078698,
+      "au_pro": 79.41576972630016,
+      "image_auroc": 99.85569985569985
+    },
+    "Oracle_A_picks": 6,
+    "Oracle_total_defects": 84,
+    "Defect_Size_Median": 21285.5,
+    "Small_Defects": {
+      "count": 42,
+      "Route_A_AUROC": 91.83205612908544,
+      "Route_A_AP": 31.380956654093527,
+      "Route_B_AUROC": 96.43208863757496,
+      "Route_B_AP": 42.71451882787696
+    },
+    "Large_Defects": {
+      "count": 42,
+      "Route_A_AUROC": 81.62132727932786,
+      "Route_A_AP": 46.4974146461157,
+      "Route_B_AUROC": 93.63485428958563,
+      "Route_B_AP": 73.92958958100184
+    },
+    "Periodicity_Mean_Good": 0.4407901745854002,
+    "Periodicity_Mean_Defect": 0.44574162860711414
+  },
+  "wood": {
+    "Route_A": {
+      "pixel_auroc": 84.36740114918038,
+      "pixel_ap": 32.08812003258412,
+      "au_pro": 83.94499652062125,
+      "image_auroc": 76.57894736842104
+    },
+    "Route_B_NN_mean": {
+      "pixel_auroc": 92.23668280133211,
+      "pixel_ap": 62.13232875683099,
+      "au_pro": 93.59009961434616,
+      "image_auroc": 99.67836257309942
+    },
+    "SubspaceAD_PCA_mean": {
+      "pixel_auroc": 91.97807483333162,
+      "pixel_ap": 60.79144021022671,
+      "au_pro": 93.34878936763579,
+      "image_auroc": 98.5672514619883
+    },
+    "Per_Image_Oracle": {
+      "pixel_auroc": 89.94475445624978,
+      "pixel_ap": 29.15160585127871,
+      "au_pro": 84.52519595377744,
+      "image_auroc": 99.56140350877192
+    },
+    "Oracle_A_picks": 3,
+    "Oracle_total_defects": 60,
+    "Defect_Size_Median": 7742.0,
+    "Small_Defects": {
+      "count": 30,
+      "Route_A_AUROC": 95.76058536581515,
+      "Route_A_AP": 26.955155632131873,
+      "Route_B_AUROC": 98.33308394889411,
+      "Route_B_AP": 39.57775191469526
+    },
+    "Large_Defects": {
+      "count": 30,
+      "Route_A_AUROC": 80.59847478389962,
+      "Route_A_AP": 41.44317236203371,
+      "Route_B_AUROC": 89.0354823216349,
+      "Route_B_AP": 69.46666000145363
+    },
+    "Periodicity_Mean_Good": 0.38646154811507777,
+    "Periodicity_Mean_Defect": 0.39941230763991675
+  }
+}
