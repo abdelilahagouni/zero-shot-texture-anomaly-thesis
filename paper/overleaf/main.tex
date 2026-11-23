@@ -1,0 +1,101 @@
+% =====================================================================
+%  MSc paper -- Overleaf project
+%  Authors: Abdelilah Agouni, Byan Hussein, Bilal Yousfi (supervisor)
+%
+%  HOW THIS PROJECT WORKS
+%  - Each section is its own file in sections/. Write one section at a time.
+%  - Lines starting with % are notes to you. They never appear in the PDF.
+%  - \todo{...} prints red text in the PDF, so you can see what is unfinished.
+%    Delete each \todo when the part is written.
+%  - Cite with \cite{key}. Keys are in refs.bib (list at the bottom of this file).
+%    Numbers [1], [2], ... are assigned automatically in order of first citation.
+%  - Tables and figures are already in place with the verified numbers.
+%    Refer to them with Table~\ref{tab:main} or Fig.~\ref{fig:size}.
+%  - Compiler: pdfLaTeX (Overleaf default). Bibliography: biber (automatic).
+% =====================================================================
+
+% IEEE two-column layout. If the target journal gives its own template,
+% copy the sections/ folder and refs.bib into that template instead.
+\documentclass[conference]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,patterns}
+\usepackage[hidelinks]{hyperref}
+\usepackage[style=ieee,doi=true,url=false,isbn=false,eprint=false,backend=biber]{biblatex}
+\addbibresource{refs.bib}
+
+\graphicspath{{figures/}}
+
+% Red marker for unfinished parts. Delete each \todo when you write that part.
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+% Consistent names (change here once, it changes everywhere)
+\newcommand{\RA}{Route~A}
+\newcommand{\RB}{Route~B}
+\newcommand{\Aclean}{A-clean}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% TITLE -- agree the final title with Dr. Yousfi.
+% Current title (thesis version):
+\title{When Is Self-Similarity Enough? Defect Size and Reference
+Contamination in Zero-Shot Texture Anomaly Detection}
+% Option recommended for the paper (states the result, keyword-rich):
+% \title{Large Defects Contaminate Their Own Reference: Limits of Mean
+% Self-Similarity in Zero-Shot Texture Anomaly Detection}
+% Option keeping the question:
+% \title{When Is Mean Self-Similarity Enough? Defect Size and Reference
+% Contamination in Zero-Shot Texture Anomaly Detection}
+% ---------------------------------------------------------------------
+
+\author{
+\IEEEauthorblockN{Abdelilah Agouni, Byan Hussein, Bilal Yousfi}
+\IEEEauthorblockA{Department of Computer Engineering, Faculty of \todo{faculty name}\\
+Karab\"uk University, Karab\"uk, T\"urkiye\\
+Corresponding author: abdelilah.agouni@gmail.com}
+}
+
+\maketitle
+
+
+% PART 1 (requested by Dr. Yousfi): Introduction, Literature Review, Methodology.
+% Remove the % in front of a line to add that part to the PDF later.
+% \input{sections/00_abstract}     % write last
+\input{sections/01_introduction}
+\input{sections/02_related_work}   % Literature Review
+\input{sections/03_methods}        % Methodology
+% \input{sections/04_results}      % tables and figures are ready inside
+% \input{sections/05_discussion}
+% \input{sections/06_conclusion}
+% \input{sections/07_declarations}
+
+\printbibliography
+
+\end{document}
+
+% =====================================================================
+% CITATION KEYS (all verified, with DOIs, in refs.bib)
+%   bergmann2021mvtec          MVTec AD dataset (IJCV 2021)
+%   aota2023zeroshot           Aota et al., zero-shot texture AD (WACV 2023)
+%   ardelean2024highfidelity   FCA (WACV 2024)
+%   yao2025grnr                GRNR (IEEE TSMC: Systems 2025)
+%   zhang2025nlpa              NLPA-AD (Applied Intelligence 2025)
+%   roth2022patchcore          PatchCore (CVPR 2022)
+%   damm2025anomalydino        AnomalyDINO (WACV 2025)
+%   lendering2026subspacead    SubspaceAD (CVPR 2026, accepted)
+%   li2024musc                 MuSc (ICLR 2024)
+%   legia2025consistent        CoDeGraph / consistent anomalies (arXiv 2025)
+%   lehr2024limitations        Defect-size limits of AD (SPIE ICMV 2023)
+%   villanueva2026cleaning     Contaminated reference sets (Electronics 2026)
+%   oquab2024dinov2            DINOv2 (TMLR 2024)
+% Also in refs.bib, not cited yet: luo2025inp, bergmann2019mvtec,
+%   jeong2023winclip, zagoruyko2016wide.
+% =====================================================================

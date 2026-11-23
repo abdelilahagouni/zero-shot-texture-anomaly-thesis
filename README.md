@@ -45,6 +45,8 @@ src/                      analysis and experiment scripts
   feature_layer_sweep.py    DINOv2 layer / scoring / pooling sweep
   fca_baseline/             wrappers around the official FCA code (not modified)
 results/                  one folder per experiment: results (.txt, .json, .csv), configs, environment files
+paper/                    the paper: Overleaf project, Part 1 PDF/Word, figures, verified references, audit notes (see paper/README.md)
+presentation/             defence slides and HTML explainers
 REPRODUCE.md              how to reproduce every number
 ```
 

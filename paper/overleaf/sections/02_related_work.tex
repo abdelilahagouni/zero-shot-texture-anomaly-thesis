@@ -1,0 +1,99 @@
+\section{Literature Review}
+\label{sec:related}
+% Draft for the authors to review and rewrite in their own words.
+% Every claim below is checked against the literature matrix
+% (paper_literature_and_course_checklist.xlsx, sheet "Literature matrix").
+
+\subsection{Industrial anomaly detection and MVTec AD}
+MVTec AD~\cite{bergmann2021mvtec} contains defect-free training images and
+annotated test images for 15 categories, five of which are textures:
+carpet, grid, leather, tile and wood. Most recent methods are evaluated on
+it with image-level and pixel-level area under the receiver operating
+characteristic curve (AUROC) and the per-region overlap (PRO). Because the
+test pixels are overwhelmingly normal (about 97\% on MVTec
+AD~\cite{li2024musc}), pixel AUROC is lenient, and studies increasingly
+report pixel-level average precision (AP) and the area under the PRO curve
+(AU-PRO) as well.
+
+\subsection{Zero-shot single-image methods}
+Aota et~al.~\cite{aota2023zeroshot} showed that texture anomalies can be
+detected without any normal training images. Their method uses all patches
+of the test image as the gallery and scores each patch by its mean distance
+to its $K$ nearest neighbours ($K=400$ of 1{,}600 patches), using
+WideResNet-50 features at $320\times320$ pixels. The method assumes that
+normal regions form the majority of the image, and it is insensitive to the
+orientation mismatch between training and test images that hurts many-shot
+methods. FCA~\cite{ardelean2024highfidelity} replaces the nearest-neighbour
+score with a comparison of local feature statistics against a median
+reference, using a one-dimensional Wasserstein correspondence, and reports a
+large reduction in localisation error on the MVTec AD textures; its
+supplementary material notes failures when the anomaly covers the majority
+of the image. Global-regularized neighborhood regression
+(GRNR)~\cite{yao2025grnr} reconstructs each query from its neighbourhood with
+a global normality prior, and NLPA-AD~\cite{zhang2025nlpa} propagates normal
+labels across the texture while stopping propagation at likely anomalous
+points. INP-Former~\cite{luo2025inp} learns to extract normal prototypes from
+the test image itself, but it requires training. All of these methods take
+their reference from the test image and report averages over all defects.
+
+\subsection{Few-shot memory banks}
+PatchCore~\cite{roth2022patchcore} introduced a memory bank of nominal patch
+features from the full training set, scored by nearest-neighbour distance. AnomalyDINO~\cite{damm2025anomalydino}
+showed that frozen DINOv2 patch features~\cite{oquab2024dinov2} make this
+idea strong in the few-shot regime: with a memory bank built from a handful
+of reference images and cosine distance to the nearest patch, it raised
+one-shot image AUROC on MVTec AD from 93.1\% to 96.6\% without training.
+SubspaceAD~\cite{lendering2026subspacead} models few-shot DINOv2 features
+with a principal-component subspace and reports a PRO of about 97\% on the
+textures with four references. Few-shot methods do not depend on the test
+image being mostly normal, but they assume that the references are clean;
+replacing three of ten references with defective images costs 1.8 AUROC points on average over four datasets (1.3 on MVTec AD)~\cite{villanueva2026cleaning}.
+
+\subsection{Batched zero-shot methods}
+MuSc~\cite{li2024musc} scores each patch against the patches of all other
+unlabelled test images and aggregates local neighbourhoods at several scales,
+small for small defects and large for large ones. Le-Gia and
+Ahn~\cite{legia2025consistent} show that such methods fail when the same
+anomaly recurs across test images, and they observe that these consistent
+anomalies often have large masks. Batched methods need many test images at
+once, which differs from the single-image setting studied here.
+
+\subsection{Defect size and contamination}
+Defect size has received little direct attention. Lehr
+et~al.~\cite{lehr2024limitations} grow a defect pattern in steps and
+measure the smallest reliably detected size for one method. The
+contamination studied for few-shot detectors concerns defective images in
+the reference set~\cite{villanueva2026cleaning}, not a defect inside the
+test image that becomes part of its own reference.
+
+\subsection{Summary and research gap}
+Table~\ref{tab:lit} summarises where each family takes its reference. The
+literature establishes that single-image methods assume a majority of
+normal patches~\cite{aota2023zeroshot,ardelean2024highfidelity}, but it
+reports results as averages over all defects. To our knowledge, no study has
+compared a single-image and a few-shot reference across defect sizes on the
+same features, or tested with an intervention whether contamination of the
+image's own reference explains the difference. This is an empirical gap
+(the size dependence has not been measured) and a methodological gap
+(average scores cannot reveal it).
+
+\begin{table}[t]
+\centering
+\caption{Where training-free texture anomaly detectors take their reference
+for ``normal''.}
+\label{tab:lit}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4.3cm}}
+\toprule
+Family & Examples & Reference and assumption \\
+\midrule
+Zero-shot, single image & \cite{aota2023zeroshot,ardelean2024highfidelity,yao2025grnr,zhang2025nlpa}
+  & Rest of the test image; most of the image is normal \\
+Memory bank (few-shot) & \cite{roth2022patchcore,damm2025anomalydino,lendering2026subspacead}
+  & Patches of a few clean images; references are clean \\
+Batched zero-shot & \cite{li2024musc,legia2025consistent}
+  & Other unlabelled test images; anomalies do not recur \\
+\bottomrule
+\end{tabular}
+\end{table}

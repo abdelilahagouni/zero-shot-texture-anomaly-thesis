@@ -1,0 +1,96 @@
+\section{Introduction}
+\label{sec:intro}
+% The authors' introduction (Nov 20), with the corrections accepted.
+% Keep editing it in your own words.
+
+Textured products such as carpet, leather, wood and tile are judged by their
+appearance, so even a small defect can make them unsellable. Industry needs
+computers and software to do visual inspection and to check every product on
+the production line. Companies mostly produce good products, so if we wait to
+collect hundreds of images of defective products, it takes a long time. Also,
+inspection by human workers is slow, and they miss small defects when they
+become tired.
+
+Defects are also varied, and labelling is very expensive, because the exact
+defect must be drawn pixel by pixel. Instead of learning what defects look
+like, methods therefore learn what normal products look like and flag anything
+different. This approach is called anomaly detection (AD), and the MVTec AD
+dataset is its standard benchmark~\cite{bergmann2021mvtec}.
+
+Training-free AD methods differ mainly in where they find their reference for
+``normal''. Zero-shot single-image methods use no reference images at all: they
+only compare each patch of the test image with the rest of the same image and
+flag regions that break its homogeneity~\cite{aota2023zeroshot,ardelean2024highfidelity,yao2025grnr,zhang2025nlpa}.
+Few-shot methods build a memory bank from the patches of a few defect-free
+reference images and give each test patch a score from its distance to the
+nearest entry~\cite{roth2022patchcore,damm2025anomalydino,lendering2026subspacead}.
+
+Batched zero-shot methods compare patches across many unlabelled test
+images~\cite{li2024musc,legia2025consistent}. Frozen self-supervised features,
+in particular DINOv2~\cite{oquab2024dinov2}, make all three families practical
+without any training.
+
+Single-image methods depend on an assumption: most of the image is normal.
+Aota et~al.~\cite{aota2023zeroshot} state this assumption for pixel-level
+detection, and the authors of feature correspondence analysis
+(FCA)~\cite{ardelean2024highfidelity} acknowledge a limitation when anomalies
+extend across most of the image. The underlying assumption is therefore
+expected to become less reliable as defect size increases, because a large
+defect becomes part of the reference that each patch is compared with.
+Published results, however, are reported as averages over all defects, which
+hides any dependence on size. Defect size has been studied for a single method
+and small defects~\cite{lehr2024limitations}, and contamination of the
+reference set of few-shot detectors has been studied~\cite{villanueva2026cleaning},
+but to our knowledge no study has measured how single-image self-similarity and
+a few-shot memory bank compare across defect sizes on the same frozen features,
+or tested whether the defect contaminating the image's own reference explains
+the difference.
+% NOTE: confirm "to our knowledge" with Google Scholar and arXiv
+% (strings G1--G3 in the workbook) before submission.
+
+This study fills that gap with four research questions:
+\begin{enumerate}
+  \item[RQ1:] How much does a four-image memory bank improve on a simple
+  mean-similarity single-image baseline?
+  \item[RQ2:] How does that improvement depend on defect size?
+  \item[RQ3:] How much of the size dependence comes from the defect
+  contaminating the image's own reference?
+  \item[RQ4:] Does a robust published single-image method (FCA) show the same
+  dependence?
+\end{enumerate}
+
+We do not propose a new detector. We compare a mean-similarity single-image
+baseline (Route~A), our implementation of the memory-bank idea of
+AnomalyDINO~\cite{damm2025anomalydino} (Route~B) and the official FCA code on
+the five MVTec AD textures, with the same frozen DINOv2 features and the same
+metric code.
+
+The main contributions of this work are as follows:
+\begin{enumerate}
+  \item A controlled comparison of references. On the same frozen DINOv2
+  features and with the same metric code, we show that a four-image memory bank
+  outperforms mean self-similarity on all five textures (pixel-level average
+  precision, Pixel AP, 32.1\% vs.\ 50.0\%), and that a robust published
+  single-image method (FCA) outperforms both on segmentation.
+  \item A size analysis. On 382 defective images, we show that the advantage of
+  the memory bank grows with defect size (a slope difference of $-2.72$ points
+  of per-image area under the ROC curve, AUROC, per unit of log defect area),
+  while the slope of FCA cannot be distinguished from that of the memory bank;
+the strong size dependence is therefore not shared by every single-image
+method.
+  \item An intervention study. On real and synthetic defects, we show that
+  removing the defect from the image's own reference recovers about half of the
+  size slope on real defects and about two thirds on synthetic defects, whereas median and trimmed-mean references recover little; on real defects
+the rest of the slope remains unexplained.
+\end{enumerate}
+We also report the ideas that did not work (routing between the two methods, an
+image-level mean score and feature drift), and we fixed every success criterion
+before running the analysis; code and results are kept in a tagged repository that will be made public
+on publication.
+
+The rest of this paper is organised as follows.
+Section~\ref{sec:related} reviews the related literature and
+Section~\ref{sec:methods} describes the methodology; Section~IV presents the
+results, Section~V discusses them and Section~VI concludes.
+% When Results, Discussion and Conclusion are switched on in main.tex,
+% replace IV, V, VI with \ref{sec:results}, \ref{sec:discussion}, \ref{sec:conclusion}.
