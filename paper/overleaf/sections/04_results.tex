@@ -1,0 +1,234 @@
+\section{Results}
+\label{sec:results}
+% Course PDF: results = findings, WITHOUT interpretation (that goes in the
+% Discussion). Every table and figure must be mentioned in the text.
+% All numbers below are verified against the result files.
+
+\subsection{Main comparison}
+% Key points: Route B beats Route A on every texture and metric (full image):
+% Pixel AP 32.1 -> 50.0 (+17.9), AU-PRO 86.6 -> 94.9, image AUROC 87.0 -> 99.8.
+% Border ignored: gain shrinks (+7.5 Pixel AP). FCA is ahead of Route B on all
+% segmentation metrics. Aota-style image AUROC 39.0 -> 99.3 once the border is
+% ignored (border artefact).
+\todo{Describe Table~\ref{tab:main} and Fig.~\ref{fig:pixelap}.}
+
+\begin{table}[t]
+\centering
+\caption{Five-texture averages (\%), full image (F) and with a 10\% border
+ignored (C). \RB: mean of three seeds. Last DINOv2 layer.}
+\label{tab:main}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llcccc}
+\toprule
+Method & Prot. & Pixel AP & AU-PRO & Pix.\ AUROC & Img.\ AUROC \\
+\midrule
+\RA & F & 32.1 & 86.6 & 92.1 & 87.0 \\
+\RA & C & 43.8 & 89.1 & 94.1 & 91.3 \\
+\RB & F & 50.0 & 94.9 & 97.0 & 99.8 \\
+\RB & C & 51.3 & 93.2 & 97.1 & 99.9 \\
+FCA \cite{ardelean2024highfidelity} & F & 70.4 & 95.9 & 98.1 & 97.1 \\
+FCA \cite{ardelean2024highfidelity} & C & 76.8 & 97.1 & 98.8 & 99.5 \\
+Aota-style \cite{aota2023zeroshot} & F & 26.3 & 83.8 & 93.4 & 39.0 \\
+Aota-style \cite{aota2023zeroshot} & C & 66.5 & 95.9 & 98.2 & 99.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig1_pixel_ap_per_texture.png}
+\caption{Pixel AP per texture, \RA\ versus \RB\ (full image). \RB: mean of
+three seeds; bars show the standard deviation.}
+\label{fig:pixelap}
+\end{figure}
+
+\subsection{Size dependence}
+% Key points: slopes on log area: A -3.89, Aota-style -1.88, B -1.17,
+% FCA -0.80 (full image). A - B = -2.72 [-3.49, -1.93]; FCA - B = +0.37
+% [-0.19, +1.08], so FCA is not steeper than B. Per texture, Spearman between
+% B's advantage and area is +0.49 to +0.70. Ceiling check: the log ratio of
+% A's to B's error rises with area (+0.16 [+0.03, +0.29]).
+\todo{Describe Table~\ref{tab:slopes} and Fig.~\ref{fig:size}.}
+
+\begin{table}[t]
+\centering
+\caption{Slope of per-image pixel AUROC on log defect area (points), with
+95\% intervals. \RB: seed 42. Full image $n=382$; border ignored $n=380$.}
+\label{tab:slopes}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcc}
+\toprule
+Method & Full image & Border ignored \\
+\midrule
+\RA & $-3.89$ [$-5.48$, $-2.53$] & $-2.53$ [$-3.98$, $-1.52$] \\
+Aota-style \cite{aota2023zeroshot} & $-1.88$ [$-3.02$, $-0.85$] & $-0.93$ [$-1.69$, $-0.37$] \\
+\RB & $-1.17$ [$-2.14$, $-0.48$] & $-1.06$ [$-1.81$, $-0.56$] \\
+FCA \cite{ardelean2024highfidelity} & $-0.80$ [$-1.32$, $-0.34$] & $-0.34$ [$-0.78$, $+0.01$] \\
+\midrule
+A $-$ B & $-2.72$ [$-3.49$, $-1.93$] & $-1.47$ [$-2.30$, $-0.85$] \\
+FCA $-$ B & $+0.37$ [$-0.19$, $+1.08$] & $+0.72$ [$+0.27$, $+1.25$] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig2_size_slopes_real.png}
+\caption{Slope of per-image pixel AUROC on log defect area on real defects,
+with 95\% bootstrap intervals (filled: full image; open: 10\% border
+ignored). \RB: seed 42.}
+\label{fig:size}
+\end{figure}
+
+\subsection{Does contamination explain it?}
+% Key points: A-clean - A = +1.96 [+1.28, +2.66] on real defects (about half
+% of A's -3.89), +5.68 on synthetic (about two thirds of -8.56). A-median
+% +0.19 (interval includes 0), A-trim +0.10. On real defects A-clean is still
+% steeper than B (-0.75 [-1.14, -0.36]). Contamination index rises with area
+% (pooled Spearman 0.96). At 25% -> 50% coverage: A -26.1 [-26.8, -25.4],
+% A-clean -0.2 [-0.6, +0.2], in all four defect types (hue shift A-clean -1.3,
+% inside the pre-set 2-point tolerance).
+\todo{Describe Table~\ref{tab:contam}, Fig.~\ref{fig:realsyn} and Fig.~\ref{fig:coverage}.}
+
+\begin{table}[t]
+\centering
+\caption{Effect of the reference on the size slope (points per unit of log
+area; differences with 95\% intervals). $^\dagger$Uses the ground-truth mask.
+\RB: ten seeds (real), five (synthetic).}
+\label{tab:contam}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcc}
+\toprule
+Quantity & Real defects & Synthetic \\
+\midrule
+Slope of A & $-3.89$ & $-8.56$ \\
+Slope of \Aclean$^\dagger$ & $-1.93$ & $-2.88$ \\
+Slope of B & $-1.18$ & $-4.23$ \\
+\midrule
+\Aclean\ $-$ A & $+1.96$ [$+1.28$, $+2.66$] & $+5.68$ [$+5.57$, $+5.79$] \\
+A-median $-$ A & $+0.19$ [$-0.05$, $+0.46$] & $+0.94$ [$+0.85$, $+1.03$] \\
+A-trim $-$ A & $+0.10$ [$+0.03$, $+0.17$] & $+0.24$ [$+0.21$, $+0.28$] \\
+\Aclean\ $-$ B & $-0.75$ [$-1.14$, $-0.36$] & $+1.35$ [$+1.25$, $+1.44$] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig3_slopes_real_vs_synthetic.png}
+\caption{Slopes of per-image pixel AUROC on log area with 95\% intervals,
+real and synthetic defects. $^\dagger$\Aclean\ uses the ground-truth mask
+(diagnostic only).}
+\label{fig:realsyn}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig4_coverage_25_50.png}
+\caption{Per-image pixel AUROC at 25\% and 50\% defect coverage in the
+synthetic sweep, pooled and by defect type. $^\dagger$Diagnostic only.}
+\label{fig:coverage}
+\end{figure}
+
+\subsection{Negative results}
+% Key points:
+%  - Feature drift rises with size, but its association with AUROC at a fixed
+%    size has the wrong sign (positive): not a mechanism.
+%  - Routing: always-B 48.9% Pixel AP, calibrated router 26.2%, raw 16.2%;
+%    best per-image choice adds at most 0.25 AUROC points in any texture.
+%  - Image-level mean score: AUROC 98.0 vs 87.0, but the pre-set test holds in
+%    2 textures (leather, tile), not the 4 required: not claimed.
+%  - Small defects: A beats B only on leather (paired Wilcoxon, Holm
+%    p = 0.004, median gain 0.18 AUROC points).
+\todo{The four negative results.}
+
+\subsection{Comparison with published methods}
+% Key points: indicative only, protocols differ. Route B matches AnomalyDINO
+% on AU-PRO (94.9 vs 94.9), is close to Aota, below FCA and SubspaceAD.
+% Not a state-of-the-art method.
+\todo{Describe Table~\ref{tab:published}.}
+
+\begin{table}[t]
+\centering
+\caption{Five-texture averages (\%) as reported under each paper's own
+protocol; averages for \cite{yao2025grnr}, \cite{damm2025anomalydino} and
+\cite{lendering2026subspacead} computed from per-texture tables.
+n/r: not reported.}
+\label{tab:published}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llccc}
+\toprule
+Method & Setting & Img.\ AUROC & Pix.\ AUROC & PRO \\
+\midrule
+\RA\ (ours) & 0-shot & 87.0 & 92.1 & 86.6 \\
+\RB\ (ours) & 4-shot & 99.8 & 97.0 & 94.9 \\
+Aota et al.\ \cite{aota2023zeroshot} & 0-shot & 99.7 & 97.5 & 93.8 \\
+FCA \cite{ardelean2024highfidelity} & 0-shot & 99.6 & 98.7 & 97.2 \\
+GRNR \cite{yao2025grnr} & 0-shot & 99.1 & 96.2 & n/r \\
+AnomalyDINO \cite{damm2025anomalydino} & 4-shot & 99.5 & n/r & 94.9 \\
+SubspaceAD \cite{lendering2026subspacead} & 4-shot & 99.9 & 98.4 & 97.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Feature-layer sweep}
+% Key points: blocks 6, 8, 10, 12 and the mean of 7-9; 23 of 30 Route A
+% variants gain at least 3 AU-PRO points; Route B improves too, so the
+% same-layer AU-PRO gap falls from 8.3 to 3.1-6.9 (full) and 2.2-3.3
+% (border ignored). Slope difference -1.1 to -1.7 at intermediate layers,
+% all intervals exclude 0 on the full image; with the border ignored the
+% mean of 7-9 just includes 0 (+0.05). Block 10: Route A image AUROC 34.7
+% full vs 97.2 border ignored (border artefact). No layer chosen on the test set.
+\todo{Describe Table~\ref{tab:layergap} and Table~\ref{tab:layerslope}.}
+
+\begin{table}[t]
+\centering
+\caption{\RB\ minus \RA\ at the same layer (mean scoring, $1\times1$
+pooling), five-texture averages in points: full image (F) and border ignored
+(C; two border-only defective images dropped). \RB: mean of three seeds.}
+\label{tab:layergap}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llcccc}
+\toprule
+Layer & Prot. & Pixel AP & AU-PRO & Pix.\ AUROC & Img.\ AUROC \\
+\midrule
+6    & F & $+15.0$ & $+4.9$ & $+2.1$ & $+6.1$ \\
+6    & C & $+6.4$  & $+2.3$ & $+0.8$ & $+2.3$ \\
+8    & F & $+11.4$ & $+3.1$ & $+1.6$ & $+8.0$ \\
+8    & C & $+7.2$  & $+2.5$ & $+1.0$ & $+1.1$ \\
+10   & F & $+30.3$ & $+6.9$ & $+3.3$ & $+64.9$ \\
+10   & C & $+3.9$  & $+2.2$ & $+1.2$ & $+2.5$ \\
+12   & F & $+17.9$ & $+8.3$ & $+4.9$ & $+12.7$ \\
+12   & C & $+7.5$  & $+4.0$ & $+3.0$ & $+8.5$ \\
+7--9 & F & $+14.3$ & $+4.5$ & $+2.3$ & $+9.1$ \\
+7--9 & C & $+8.6$  & $+3.3$ & $+1.3$ & $+1.4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{\RA\ (mean scoring, $1\times1$ pooling) at different DINOv2 layers:
+five-texture AU-PRO (full image / border ignored) and slope difference
+A $-$ B at the same layer (points per unit of log area; \RB\ seed 42).
+7--9: mean of blocks 7--9.}
+\label{tab:layerslope}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccc}
+\toprule
+Layer & AU-PRO F / C & A $-$ B, full & A $-$ B, border ignored \\
+\midrule
+6    & 91.2 / 93.2 & $-1.16$ [$-1.66$, $-0.69$] & $-0.47$ [$-0.92$, $-0.12$] \\
+8    & 93.4 / 93.4 & $-1.12$ [$-1.67$, $-0.61$] & $-0.61$ [$-1.23$, $-0.07$] \\
+10   & 89.5 / 93.3 & $-1.68$ [$-2.42$, $-0.97$] & $-0.81$ [$-1.55$, $-0.29$] \\
+12   & 86.6 / 89.1 & $-2.72$ [$-3.49$, $-1.93$] & $-1.47$ [$-2.30$, $-0.85$] \\
+7--9 & 92.1 / 92.7 & $-1.22$ [$-1.84$, $-0.64$] & $-0.60$ [$-1.29$, $+0.05$] \\
+\bottomrule
+\end{tabular}
+\end{table}

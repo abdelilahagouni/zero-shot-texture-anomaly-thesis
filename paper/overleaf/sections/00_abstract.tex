@@ -1,0 +1,21 @@
+\begin{abstract}
+% WRITE THIS LAST (course PDF, slide 81: "introduction and abstract last").
+% Limit: 250 words. One paragraph. No citations.
+% Structure, one or two sentences each:
+%   1. Context: zero-shot texture detectors compare a patch with the rest of
+%      the same image, so they assume most of the image is normal.
+%   2. Gap: nobody measured how this fails as defects grow.
+%   3. What you did: Route A vs Route B (4 clean photos) vs FCA, frozen DINOv2,
+%      five MVTec AD textures, 382 defective images.
+%   4. Results WITH numbers: Pixel AP 32.1 -> 50.0; slope difference -2.72
+%      [-3.49, -1.93]; FCA not steeper than Route B; A-clean recovers about
+%      half (real) and two thirds (synthetic) of the slope.
+%   5. Conclusion: the size dependence belongs to the simple mean reference.
+% Define every abbreviation the first time (AUROC, AP, AU-PRO, FCA).
+\todo{Write the abstract last (max 250 words).}
+\end{abstract}
+
+\begin{IEEEkeywords}
+Texture anomaly detection, zero-shot learning, few-shot learning, DINOv2,
+defect size, reference contamination, MVTec AD
+\end{IEEEkeywords}

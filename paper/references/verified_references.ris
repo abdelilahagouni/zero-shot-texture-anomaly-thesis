@@ -1,0 +1,243 @@
+TY  - CONF
+AU  - Aota, Toshimichi
+AU  - Tong, Lloyd Teh Tzer
+AU  - Okatani, Takayuki
+TI  - Zero-shot versus Many-shot: Unsupervised Texture Anomaly Detection
+T2  - 2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)
+PY  - 2023
+SP  - 5553
+EP  - 5561
+DO  - 10.1109/WACV56688.2023.00552
+ER  - 
+
+TY  - CONF
+AU  - Ardelean, Andrei-Timotei
+AU  - Weyrich, Tim
+TI  - High-Fidelity Zero-Shot Texture Anomaly Localization Using Feature Correspondence Analysis
+T2  - 2024 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)
+PY  - 2024
+SP  - 1123
+EP  - 1133
+DO  - 10.1109/WACV57701.2024.00117
+UR  - https://arxiv.org/abs/2304.06433
+ER  - 
+
+TY  - JOUR
+AU  - Yao, Haiming
+AU  - Luo, Wei
+AU  - Cao, Yunkang
+AU  - Zhang, Yiheng
+AU  - Yu, Wenyong
+AU  - Shen, Weiming
+TI  - Global-Regularized Neighborhood Regression for Efficient Zero-Shot Texture Anomaly Detection
+JO  - IEEE Transactions on Systems, Man, and Cybernetics: Systems
+PY  - 2025
+VL  - 55
+IS  - 10
+SP  - 7510
+EP  - 7525
+DO  - 10.1109/TSMC.2025.3595539
+UR  - https://arxiv.org/abs/2406.07333
+ER  - 
+
+TY  - CONF
+AU  - Damm, Simon
+AU  - Laszkiewicz, Mike
+AU  - Lederer, Johannes
+AU  - Fischer, Asja
+TI  - AnomalyDINO: Boosting Patch-based Few-Shot Anomaly Detection with DINOv2
+T2  - 2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)
+PY  - 2025
+SP  - 1319
+EP  - 1329
+DO  - 10.1109/WACV61041.2025.00136
+ER  - 
+
+TY  - CONF
+AU  - Luo, Wei
+AU  - Cao, Yunkang
+AU  - Yao, Haiming
+AU  - Zhang, Xiaotian
+AU  - Lou, Jianan
+AU  - Cheng, Yuqi
+AU  - Shen, Weiming
+AU  - Yu, Wenyong
+TI  - Exploring Intrinsic Normal Prototypes within a Single Image for Universal Anomaly Detection
+T2  - 2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+PY  - 2025
+SP  - 9974
+EP  - 9983
+UR  - https://arxiv.org/abs/2503.02424
+ER  - 
+
+TY  - JOUR
+AU  - Villanueva López, Sergio
+AU  - Soria-Olivas, Emilio
+AU  - Sánchez-Montañés, Manuel
+TI  - Cleaning Contaminated Reference Sets for Few-Shot Visual Anomaly Detection
+JO  - Electronics
+PY  - 2026
+VL  - 15
+IS  - 19
+SP  - 4486
+DO  - 10.3390/electronics15194486
+ER  - 
+
+TY  - JOUR
+AU  - Zhang, Jiajun
+AU  - Song, Yanzhi
+AU  - Yang, Zhouwang
+AU  - Wang, Chencheng
+TI  - NLPA-AD: normal label propagation algorithm for zero-shot texture anomaly detection
+JO  - Applied Intelligence
+PY  - 2025
+VL  - 55
+IS  - 12
+DO  - 10.1007/s10489-025-06733-6
+ER  - 
+
+TY  - JOUR
+AU  - Bergmann, Paul
+AU  - Batzner, Kilian
+AU  - Fauser, Michael
+AU  - Sattlegger, David
+AU  - Steger, Carsten
+TI  - The MVTec anomaly detection dataset: a comprehensive real-world dataset for unsupervised anomaly detection
+JO  - International Journal of Computer Vision
+PY  - 2021
+VL  - 129
+IS  - 4
+SP  - 1038
+EP  - 1059
+DO  - 10.1007/s11263-020-01400-4
+ER  - 
+
+TY  - CONF
+AU  - Bergmann, Paul
+AU  - Fauser, Michael
+AU  - Sattlegger, David
+AU  - Steger, Carsten
+TI  - MVTec AD: A comprehensive real-world dataset for unsupervised anomaly detection
+T2  - 2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+PY  - 2019
+SP  - 9592
+EP  - 9600
+ER  - 
+
+TY  - CONF
+AU  - Roth, Karsten
+AU  - Pemula, Latha
+AU  - Zepeda, Joaquin
+AU  - Schölkopf, Bernhard
+AU  - Brox, Thomas
+AU  - Gehler, Peter
+TI  - Towards Total Recall in Industrial Anomaly Detection
+T2  - 2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+PY  - 2022
+SP  - 14298
+EP  - 14308
+DO  - 10.1109/CVPR52688.2022.01392
+ER  - 
+
+TY  - CONF
+AU  - Jeong, Jongheon
+AU  - Zou, Yang
+AU  - Kim, Taewan
+AU  - Zhang, Dongqing
+AU  - Ravichandran, Avinash
+AU  - Dabeer, Onkar
+TI  - WinCLIP: Zero-/Few-Shot Anomaly Classification and Segmentation
+T2  - 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+PY  - 2023
+SP  - 19606
+EP  - 19616
+ER  - 
+
+TY  - CONF
+AU  - Zagoruyko, Sergey
+AU  - Komodakis, Nikos
+TI  - Wide Residual Networks
+T2  - Proceedings of the British Machine Vision Conference (BMVC)
+PY  - 2016
+SP  - 87.1
+EP  - 87.12
+ER  - 
+
+TY  - CONF
+AU  - Lendering, Camile
+AU  - Akdag, Erkut
+AU  - Bondarev, Egor
+TI  - SubspaceAD: Training-Free Few-Shot Anomaly Detection via Subspace Modeling
+T2  - 2026 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+PY  - 2026
+DO  - 10.48550/arXiv.2602.23013
+UR  - https://arxiv.org/abs/2602.23013
+ER  - 
+
+TY  - CONF
+AU  - Li, Xurui
+AU  - Huang, Ziming
+AU  - Xue, Feng
+AU  - Zhou, Yu
+TI  - MuSc: Zero-Shot Industrial Anomaly Classification and Segmentation with Mutual Scoring of the Unlabeled Images
+T2  - International Conference on Learning Representations (ICLR)
+PY  - 2024
+DO  - 10.48550/arXiv.2401.16753
+UR  - https://arxiv.org/abs/2401.16753
+ER  - 
+
+TY  - JOUR
+AU  - Le-Gia, Tai
+AU  - Ahn, Jaehyun
+TI  - On the Problem of Consistent Anomalies in Zero-Shot Industrial Anomaly Detection
+JO  - arXiv preprint arXiv:2510.10456
+PY  - 2025
+DO  - 10.48550/arXiv.2510.10456
+UR  - https://arxiv.org/abs/2510.10456
+ER  - 
+
+TY  - CONF
+AU  - Lehr, Jan
+AU  - Pape, Martin
+AU  - Philipps, Jan
+AU  - Scholler, Felix
+AU  - Krüger, Jörg
+TI  - Limitations of anomaly detection: beyond which size defects can be reliably recognized
+T2  - Proc. SPIE, Sixteenth International Conference on Machine Vision (ICMV 2023)
+PY  - 2024
+DO  - 10.1117/12.3023615
+ER  - 
+
+TY  - JOUR
+AU  - Oquab, Maxime
+AU  - Darcet, Timothée
+AU  - Moutakanni, Théo
+AU  - Vo, Huy V.
+AU  - Szafraniec, Marc
+AU  - Khalidov, Vasil
+AU  - Fernandez, Pierre
+AU  - Haziza, Daniel
+AU  - Massa, Francisco
+AU  - El-Nouby, Alaaeldin
+AU  - Assran, Mahmoud
+AU  - Ballas, Nicolas
+AU  - Galuba, Wojciech
+AU  - Howes, Russell
+AU  - Huang, Po-Yao
+AU  - Li, Shang-Wen
+AU  - Misra, Ishan
+AU  - Rabbat, Michael
+AU  - Sharma, Vasu
+AU  - Synnaeve, Gabriel
+AU  - Xu, Hu
+AU  - Jegou, Hervé
+AU  - Mairal, Julien
+AU  - Labatut, Patrick
+AU  - Joulin, Armand
+AU  - Bojanowski, Piotr
+TI  - DINOv2: Learning Robust Visual Features without Supervision
+JO  - Transactions on Machine Learning Research
+PY  - 2024
+DO  - 10.48550/arXiv.2304.07193
+UR  - https://arxiv.org/abs/2304.07193
+ER  - 
